@@ -20,7 +20,7 @@ class PhoneContact(models.Model):
 
 class QuoteRequest(models.Model):
     leadName = models.CharField(max_length=100)
-    programm = models.ManyToOneRel(InsuranceProgramm)
+    programm = models.ForeignKey(InsuranceProgramm)
     email = models.EmailField()
     phone = models.CharField(max_length=30)
 
