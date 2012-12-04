@@ -23,4 +23,4 @@ MEDIA_URL = ''
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
-TEMPLATE_DIRS = ('/Users/roman/Projects/gitsites/polisingos/templates',)
+TEMPLATE_DIRS = ('C:/Users/riskanderov.PROJECTX/Documents/GitHub/polisingos/templates',)
