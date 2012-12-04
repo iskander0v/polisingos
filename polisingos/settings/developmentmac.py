@@ -20,7 +20,7 @@ DATABASES = {
 }
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-STATIC_ROOT = ''
+STATIC_ROOT = '/Users/roman/Projects/gitsites/polisingos/sitestatic/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
 TEMPLATE_DIRS = ('/Users/roman/Projects/gitsites/polisingos/templates',)

@@ -20,7 +20,7 @@ DATABASES = {
 }
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-STATIC_ROOT = ''
+STATIC_ROOT = 'C:/Users/riskanderov.PROJECTX/Documents/GitHub/polisingos/sitestatic/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
 TEMPLATE_DIRS = ('C:/Users/riskanderov.PROJECTX/Documents/GitHub/polisingos/templates',)
