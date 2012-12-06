@@ -1,0 +1,47 @@
+{% extends 'admin_base.html' %}
+
+{% block body_content %}
+    <div>
+        <div class="btn-group pull-right">
+            <button class="btn btn-small btn-primary">Добавить</button>
+            <button class="btn btn-small btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="/back">Доп функции</a> </li>
+            </ul>
+        </div>
+        <p class="lead">Типы клиентов</p>
+    </div>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th style="width: 30px;">#</th>
+            <th>Название</th>
+            <th style="width: 30px;"></th>
+            <th style="width: 30px;"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td><a href="">Юридические лица</a></td>
+            <td><a href="/back"><i class="icon-pencil"></i></a></td>
+            <td><a href="#" ><i class="icon-eye-close"></i></a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><a href="">Физические лица</a></td>
+            <td><a href="/back"><i class="icon-pencil"></i></a></td>
+            <td><a href="#" ><i class="icon-eye-open"></i></a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><a href="">Моряки</a></td>
+            <td><a href="/back"><i class="icon-pencil"></i></a></td>
+            <td><a href="#" ><i class="icon-eye-close"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

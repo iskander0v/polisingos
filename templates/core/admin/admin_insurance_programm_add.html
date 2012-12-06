@@ -1,12 +1,30 @@
 {% extends 'admin_base.html'%}
 
 {% block body_content %}
-<div>
-    <p class="lead">Создать новую программу страхования</p>
-</div>
-<div>
-    <form>
-
-    </form>
+<script type="text/javascript">
+    $(document).ready(
+            function()
+            {
+                $('#redactor_content').redactor({lang: 'ru', minHeight: 300, allowedTags: ["a", "p", "b", "i"]});
+            }
+    );
+</script>
+<div class="row-fluid">
+    <div class="span8">
+        <form>
+            <fieldset>
+                <legend>Создать новую программу страхования</legend>
+                <label>Название программы</label>
+                <input class="input-xxlarge" type="text" placeholder="Введите текст">
+                <label>Описание</label>
+                <textarea id="redactor_content"></textarea>
+                <div class="clearfix"><br/>
+                <a href="{% url admin_insurance_programm_list %}" class="btn">Отмена</a>
+                <button type="submit" class="btn btn-primary pull-right">Сохранить</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="span4"></div>
 </div>
 {% endblock %}
