@@ -3,10 +3,10 @@
 {% block body_content %}
 <div>
     <div class="btn-group pull-right">
-        <button class="btn btn-small btn-primary">Добавить</button>
-        <button class="btn btn-small btn-primary dropdown-toggle" data-toggle="dropdown">
+        <a class="btn btn-small btn-primary" href="{% url admin_insurance_programm_add %}">Добавить</a>
+        <a class="btn btn-small btn-primary dropdown-toggle" data-toggle="dropdown">
             <span class="caret"></span>
-        </button>
+        </a>
         <ul class="dropdown-menu">
             <li><a href="/back">Доп функции</a> </li>
         </ul>
@@ -26,19 +26,19 @@
     <tbody>
         <tr>
             <td>1</td>
-            <td><a href="">Company Classic</a></td>
+            <td><a href="{% url admin_insurance_programm_edit 1 %}">Company Classic</a></td>
             <td><a href="/back"><i class="icon-pencil"></i></a></td>
             <td><a href="#" ><i class="icon-eye-close"></i></a></td>
         </tr>
         <tr>
             <td>2</td>
-            <td><a href="">Company Gold</a></td>
+            <td><a href="{% url admin_insurance_programm_edit 2 %}">Company Gold</a></td>
             <td><a href="/back"><i class="icon-pencil"></i></a></td>
             <td><a href="#" ><i class="icon-eye-open"></i></a></td>
         </tr>
         <tr>
             <td>3</td>
-            <td><a href="">Lifeline Gold</a></td>
+            <td><a href="{% url admin_insurance_programm_edit 3 %}">Lifeline Gold</a></td>
             <td><a href="/back"><i class="icon-pencil"></i></a></td>
             <td><a href="#" ><i class="icon-eye-close"></i></a></td>
         </tr>
