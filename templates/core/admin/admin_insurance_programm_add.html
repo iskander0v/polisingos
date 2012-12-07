@@ -5,19 +5,17 @@
     $(document).ready(
             function()
             {
-                $('#redactor_content').redactor({lang: 'ru', minHeight: 300, allowedTags: ["a", "p", "b", "i"]});
+                $('.redactor').redactor({lang: 'ru', minHeight: 300, allowedTags: ["a", "p", "b", "i"]});
             }
     );
 </script>
 <div class="row-fluid">
     <div class="span8">
-        <form>
+        <form action="{% url admin_insurance_programm_add %}" method="post">
+            {% csrf_token %}
             <fieldset>
                 <legend>Создать новую программу страхования</legend>
-                <label>Название программы</label>
-                <input class="input-xxlarge" type="text" placeholder="Введите текст">
-                <label>Описание</label>
-                <textarea id="redactor_content"></textarea>
+                {% include 'core/admin/form/simple_form.html' %}
                 <div class="clearfix"><br/>
                 <a href="{% url admin_insurance_programm_list %}" class="btn">Отмена</a>
                 <button type="submit" class="btn btn-primary pull-right">Сохранить</button>

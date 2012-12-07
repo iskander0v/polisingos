@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 class InsuranceProgramm(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.URLField()
-    description = models.TextField()
+    name = models.CharField(max_length=100, verbose_name=u'Название программы')
+    slug = models.URLField(verbose_name=u'URL адрес')
+    description = models.TextField(verbose_name=u'Описание')
 
 class ClientType(models.Model):
     name = models.CharField(max_length=100)

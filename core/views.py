@@ -1,5 +1,9 @@
 from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import permission_required
+from django.template import RequestContext
+from forms import *
 
 def main_page(request):
     return render_to_response('core/main.html')
@@ -10,8 +14,15 @@ def admin_insurance_programm_list(request):
 
 @permission_required('core.add_insuranceprogramm')
 def admin_insurance_programm_add(request):
-
-    return render_to_response('core/admin/admin_insurance_programm_add.html')
+    if request.method == 'POST':
+        form = InsuranceProgrammForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect(reverse('core.views.admin_insurance_programm_list'))
+    else:
+        form = InsuranceProgrammForm()
+    return render_to_response('core/admin/admin_insurance_programm_add.html',
+        {'form':form},
+        context_instance=RequestContext(request))
 
 @permission_required('core.add_insuranceprogramm')
 def admin_insurance_programm_edit(request, insurance_programm_id):
