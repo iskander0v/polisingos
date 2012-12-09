@@ -14,3 +14,7 @@ class InsuranceProgrammForm(ModelForm):
         label=u'URL адрес')
     class Meta:
         model = InsuranceProgramm
+
+class ClientTypeForm(ModelForm):
+    class Meta:
+        model = ClientType

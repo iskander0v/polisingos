@@ -1,0 +1,37 @@
+{% extends 'admin_base.html'%}
+
+{% block body_content %}
+    <script type="text/javascript">
+        $(document).ready(
+                function()
+                {
+                    $('.redactor').redactor({lang: 'ru', minHeight: 300, allowedTags: ["a", "p", "b", "i"]});
+                }
+        );
+    </script>
+    <div class="row-fluid">
+        <div class="span8">
+            <form action="{% url admin_client_type_edit client_type.id %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Изменить тип клиета</legend>
+                    {% include 'core/admin/form/simple_form.html' %}
+                    <div class="clearfix"><br/>
+                        <a href="{% url admin_client_type_list %}" class="btn">Отмена</a>
+                        <div class="btn-group pull-right">
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
+                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url admin_client_type_list %}">Удалить</a> </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="span4"></div>
+    </div>
+{% endblock %}

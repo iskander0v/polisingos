@@ -11,13 +11,13 @@
     </script>
     <div class="row-fluid">
         <div class="span8">
-            <form action="{% url admin_insurance_programm_edit programm.id %}" method="post">
+            <form action="{% url admin_client_type_add %}" method="post">
                 {% csrf_token %}
                 <fieldset>
-                    <legend>Изменить программу страхования</legend>
+                    <legend>Создать новый тип клиента</legend>
                     {% include 'core/admin/form/simple_form.html' %}
                     <div class="clearfix"><br/>
-                        <a href="{% url admin_insurance_programm_list %}" class="btn">Отмена</a>
+                        <a href="{% url admin_client_type_list %}" class="btn">Отмена</a>
                         <button type="submit" class="btn btn-primary pull-right">Сохранить</button>
                     </div>
                 </fieldset>

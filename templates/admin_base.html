@@ -5,6 +5,7 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
     <link rel="stylesheet" href="/static/css/redactor.css" />
     <script src="/static/js/jquery1.8.3.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/redactor.min.js"></script>
     <script src="/static/js/ru.js"></script>
 </head>
@@ -39,7 +40,7 @@
             {% block sidebar_content %}
                 <ul class="nav nav-list">
                     <li class="nav-header">Содержание</li>
-                    <li class="active"><a href="#">Программы страхования</a></li>
+                    <li class="active"><a href="{% url admin_insurance_programm_list %}">Программы страхования</a></li>
                     <li><a href="/back/content/client-type">Типы клиентов</a></li>
                     <li><a href="/back/content/article">Статьи</a></li>
                     <li class="divider"></li>

@@ -24,24 +24,14 @@
         </tr>
     </thead>
     <tbody>
+    {% for programm in programms %}
         <tr>
-            <td>1</td>
-            <td><a href="{% url admin_insurance_programm_edit 1 %}">Company Classic</a></td>
-            <td><a href="/back"><i class="icon-pencil"></i></a></td>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url admin_insurance_programm_edit programm.id %}">{{ programm.name }}</a></td>
+            <td><a href="{% url admin_insurance_programm_edit programm.id %}"><i class="icon-pencil"></i></a></td>
             <td><a href="#" ><i class="icon-eye-close"></i></a></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="{% url admin_insurance_programm_edit 2 %}">Company Gold</a></td>
-            <td><a href="/back"><i class="icon-pencil"></i></a></td>
-            <td><a href="#" ><i class="icon-eye-open"></i></a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="{% url admin_insurance_programm_edit 3 %}">Lifeline Gold</a></td>
-            <td><a href="/back"><i class="icon-pencil"></i></a></td>
-            <td><a href="#" ><i class="icon-eye-close"></i></a></td>
-        </tr>
+    {% endfor %}
     </tbody>
 </table>
 {% endblock %}

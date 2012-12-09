@@ -3,12 +3,24 @@ from django.db import models
 
 class InsuranceProgramm(models.Model):
     name = models.CharField(max_length=100, verbose_name=u'Название программы')
-    slug = models.URLField(verbose_name=u'URL адрес')
+    slug = models.SlugField(verbose_name=u'URL адрес')
     description = models.TextField(verbose_name=u'Описание')
 
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'Программа страхования'
+
 class ClientType(models.Model):
-    name = models.CharField(max_length=100)
-    programms = models.ManyToManyField(InsuranceProgramm)
+    name = models.CharField(max_length=100, verbose_name=u'Тип клиента')
+    programms = models.ManyToManyField(InsuranceProgramm, verbose_name=u'Доступные программы')
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = u'Тип клиента'
 
 class QuestionAnswer(models.Model):
     question = models.CharField(max_length=200)
