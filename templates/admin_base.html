@@ -37,17 +37,8 @@
     <div class="row-fluid">
         <div class="span3">
             <!--Sidebar content-->
+            {% include 'core/admin/admin_sidebar.html' %}
             {% block sidebar_content %}
-                <ul class="nav nav-list">
-                    <li class="nav-header">Содержание</li>
-                    <li class="active"><a href="{% url admin_insurance_programm_list %}">Программы страхования</a></li>
-                    <li><a href="/back/content/client-type">Типы клиентов</a></li>
-                    <li><a href="/back/content/article">Статьи</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">Сайт</li>
-                    <li><a href="/back/content/article">Страницы</a></li>
-                    <li><a href="/back/content/article">Меню</a></li>
-                </ul>
             {% endblock %}
         </div>
         <div class="span9">

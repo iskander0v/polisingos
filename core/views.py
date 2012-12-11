@@ -44,15 +44,37 @@ def admin_insurance_programm_edit(request, programm_id):
 
 @permission_required('core.add_article')
 def admin_article_list(request):
-    return render_to_response('core/admin/admin_article_list.html')
+    articles = Article.objects.all().order_by('id')
+    return render_to_response('core/admin/admin_article_list.html',
+        {'articles': articles},
+        context_instance=RequestContext(request))
 
 @permission_required('core.add_article')
 def admin_article_add(request):
-    return render_to_response('core/admin/admin_article_add.html')
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.admin_article_list'))
+    else:
+        form = ArticleForm()
+    return render_to_response('core/admin/admin_article_add.html',
+        {'form':form},
+        context_instance=RequestContext(request))
 
 @permission_required('core.add_article')
 def admin_article_edit(request, article_id):
-    return render_to_response('core/admin/admin_article_edit.html')
+    article = get_object_or_404(Article, pk = article_id)
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, instance=article)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.admin_article_list'))
+    else:
+        form = InsuranceProgrammForm(instance=article)
+    return render_to_response('core/admin/admin_article_edit.html',
+        {'form': form, 'article': article},
+        context_instance=RequestContext(request))
 
 @permission_required('core.add_clienttype')
 def admin_client_type_list(request):

@@ -39,8 +39,8 @@ class QuoteRequest(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
+    slug = models.SlugField()
     text = models.TextField()
-    slug = models.URLField()
 
 class Menu(models.Model):
     alias = models.CharField(max_length=100)

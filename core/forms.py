@@ -18,3 +18,16 @@ class InsuranceProgrammForm(ModelForm):
 class ClientTypeForm(ModelForm):
     class Meta:
         model = ClientType
+
+class ArticleForm(ModelForm):
+    title = CharField(widget=TextInput(attrs={'class': 'input-xxlarge', 'placeholder': u'Введите текст'}),
+        error_messages={'required': u'Обязательное поле'},
+        label=u'Заголовок статьи')
+    slug = CharField(widget=TextInput(attrs={'class': 'input-xxlarge', 'placeholder': u'Введите адрес'}),
+        error_messages={'required': u'Обязательное поле'},
+        label=u'URL адрес')
+    text = CharField(widget=Textarea(attrs={'class': 'redactor'}),
+        error_messages={'required': u'Обязательное поле'},
+        label=u'Текст статьи')
+    class Meta:
+        model = Article

@@ -1,0 +1,12 @@
+{% load core %}
+
+<ul class="nav nav-list">
+    <li class="nav-header">Содержание</li>
+    <li {% active request "^/back/content/programm/" %}><a href="{% url admin_insurance_programm_list %}">Программы страхования</a></li>
+    <li {% active request "^/back/content/client-type/" %}><a href="{% url admin_client_type_list %}">Типы клиентов</a></li>
+    <li {% active request "^/back/content/article/" %}><a href="{% url admin_article_list %}">Статьи</a></li>
+    <li class="divider"></li>
+    <li class="nav-header">Сайт</li>
+    <li><a href="/back/content/article">Страницы</a></li>
+    <li><a href="/back/content/article">Меню</a></li>
+</ul>
