@@ -28,7 +28,7 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td><a href="{% url admin_article_edit article.id %}">{{ article.title }}</a></td>
-                <td><a href="{% url admin_article_type_edit article.id %}"><i class="icon-pencil"></i></a></td>
+                <td><a href="{% url admin_article_edit article.id %}"><i class="icon-pencil"></i></a></td>
                 <td><a href="#" ><i class="icon-eye-close"></i></a></td>
             </tr>
         {% endfor %}

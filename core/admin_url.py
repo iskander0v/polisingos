@@ -13,3 +13,7 @@ urlpatterns = patterns('core.views',
     url(r'^content/programm/add$', 'admin_insurance_programm_add', name='admin_insurance_programm_add'),
     url(r'^content/programm/(?P<programm_id>\d+)/$', 'admin_insurance_programm_edit', name='admin_insurance_programm_edit'),
 )
+
+urlpatterns += patterns('',
+    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'core/admin/admin_login.html'}),
+    url(r'^logout/$', 'django.contrib.auth.views.logout',{'next_page': '/'}))

@@ -1,3 +1,4 @@
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -7,6 +8,23 @@ from forms import *
 
 def main_page(request):
     return render_to_response('core/main.html')
+
+def admin_main(request):
+
+    if request.method == 'POST':
+
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+
+            from django.contrib.auth import login
+            login(request, form.get_user())
+            if '/account/logout/' in request.get_full_path():
+                return HttpResponseRedirect('/')
+
+    else:
+        form = AuthenticationForm(request)
+
+    return render_to_response('core/admin/admin_login.html', {'form': form}, context_instance=RequestContext(request))
 
 @permission_required('core.add_insuranceprogramm')
 def admin_insurance_programm_list(request):
@@ -71,7 +89,7 @@ def admin_article_edit(request, article_id):
             form.save()
             return HttpResponseRedirect(reverse('core.views.admin_article_list'))
     else:
-        form = InsuranceProgrammForm(instance=article)
+        form = ArticleForm(instance=article)
     return render_to_response('core/admin/admin_article_edit.html',
         {'form': form, 'article': article},
         context_instance=RequestContext(request))
