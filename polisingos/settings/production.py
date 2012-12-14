@@ -101,7 +101,7 @@ ROOT_URLCONF = 'polisingos.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'polisingos.wsgi.application'
 
-TEMPLATE_DIRS = ('/Users/roman/Projects/gitsites/polisingos/templates',)
+TEMPLATE_DIRS = ('/home/iskanderov/Projects/bupa.ru/templates',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
