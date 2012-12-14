@@ -1,4 +1,6 @@
 # Django settings for polisingos project.
+import sys, os
+sys.path.append('/usr/lib/pymodules/python2.7/flup')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
