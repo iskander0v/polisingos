@@ -72,6 +72,9 @@ INSTALLED_APPS = (
     'south',
     )
 
+LOGIN_REDIRECT_URL = '/back/content'
+LOGIN_URL = '/back/login'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
