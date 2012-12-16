@@ -49,3 +49,7 @@ class MenuItem(models.Model):
     title = models.CharField(max_length=40)
     url = models.URLField()
     availableInMenu = models.ManyToManyField(Menu)
+
+class QuestionAnswer(models.Model):
+    question = models.CharField(max_length=300, verbose_name=u'Вопрос')
+    answer = models.CharField(max_length=400, verbose_name=u'Ответ')

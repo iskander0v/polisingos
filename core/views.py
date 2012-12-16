@@ -127,3 +127,37 @@ def admin_client_type_edit(request, client_type_id):
     return render_to_response('core/admin/admin_client_type_edit.html',
         {'form': form, 'client_type': client_type},
         context_instance = RequestContext(request))
+
+@permission_required('core.add_questionanswer')
+def admin_faq_list(request):
+    faqs = QuestionAnswer.objects.all()
+    return render_to_response('core/admin/admin_faq_list.html',
+        {'faqs': faqs},
+        context_instance=RequestContext(request))
+
+@permission_required('core.add_questionanswer')
+def admin_faq_add(request):
+    if request.method == 'POST':
+        form = FaqForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.admin_faq_list'))
+    else:
+        form = FaqForm()
+    return render_to_response('core/admin/admin_faq_add.html',
+        {'form': form},
+        context_instance=RequestContext(request))
+
+@permission_required('core.add_questionanswer')
+def admin_faq_edit(request, faq_id):
+    faq = get_object_or_404(QuestionAnswer, pk=faq_id)
+    if request.method == 'POST':
+        form = FaqForm(request.POST, instance=faq)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.admin_faq_list'))
+    else:
+        form = FaqForm(instance=faq)
+    return render_to_response('core/admin/admin_faq_edit.html',
+        {'form': form, 'faq': faq},
+        context_instance = RequestContext(request))

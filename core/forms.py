@@ -31,3 +31,13 @@ class ArticleForm(ModelForm):
         label=u'Текст статьи')
     class Meta:
         model = Article
+
+class FaqForm(ModelForm):
+    question = CharField(widget=Textarea(attrs={'class': 'redactor'}),
+        error_messages={'required': u'Обязательное поле'},
+        label=u'Вопрос')
+    answer = CharField(widget=Textarea(attrs={'class': 'redactor'}),
+        error_messages={'required': u'Обязательное поле'},
+        label=u'Ответ')
+    class Meta:
+        model = QuestionAnswer

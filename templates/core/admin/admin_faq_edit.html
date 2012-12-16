@@ -1,0 +1,28 @@
+{% extends 'admin_base.html'%}
+
+{% block body_content %}
+    <script type="text/javascript">
+        $(document).ready(
+                function()
+                {
+                    $('.redactor').redactor({lang: 'ru', minHeight: 300, allowedTags: ["a", "p", "b", "i"]});
+                }
+        );
+    </script>
+    <div class="row-fluid">
+        <div class="span8">
+            <form action="{% url admin_faq_add %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Изменить вопрос-ответ</legend>
+                    {% include 'core/admin/form/simple_form.html' %}
+                    <div class="clearfix"><br/>
+                        <a href="{% url admin_faq_list %}" class="btn">Отмена</a>
+                        <button type="submit" class="btn btn-primary pull-right">Сохранить</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="span4"></div>
+    </div>
+{% endblock %}
