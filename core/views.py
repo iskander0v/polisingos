@@ -96,7 +96,7 @@ def admin_article_edit(request, article_id):
 
 @permission_required('core.add_clienttype')
 def admin_client_type_list(request):
-    client_types = ClientType.objects.all()
+    client_types = ClientType.objects.all().order_by('id')
     return render_to_response('core/admin/admin_client_type_list.html',
         {'client_types': client_types},
         context_instance=RequestContext(request))
@@ -130,7 +130,7 @@ def admin_client_type_edit(request, client_type_id):
 
 @permission_required('core.add_questionanswer')
 def admin_faq_list(request):
-    faqs = QuestionAnswer.objects.all()
+    faqs = QuestionAnswer.objects.all().order_by('id')
     return render_to_response('core/admin/admin_faq_list.html',
         {'faqs': faqs},
         context_instance=RequestContext(request))
