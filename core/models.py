@@ -51,5 +51,5 @@ class MenuItem(models.Model):
     availableInMenu = models.ManyToManyField(Menu)
 
 class QuestionAnswer(models.Model):
-    question = models.TextField(max_length=300, verbose_name=u'Вопрос')
+    question = models.TextField(max_length=400, verbose_name=u'Вопрос')
     answer = models.TextField(max_length=400, verbose_name=u'Ответ')

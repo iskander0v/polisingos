@@ -77,9 +77,9 @@ class Migration(SchemaMigration):
         },
         'core.questionanswer': {
             'Meta': {'object_name': 'QuestionAnswer'},
-            'answer': ('django.db.models.fields.TextField', [], {}),
+            'answer': ('django.db.models.fields.TextField', [], {'max_length': '400'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'question': ('django.db.models.fields.CharField', [], {'max_length': '200'})
+            'question': ('django.db.models.fields.TextField', [], {'max_length': '400'})
         },
         'core.quoterequest': {
             'Meta': {'object_name': 'QuoteRequest'},
