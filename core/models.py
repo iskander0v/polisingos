@@ -22,10 +22,6 @@ class ClientType(models.Model):
     class Meta:
         verbose_name = u'Тип клиента'
 
-class QuestionAnswer(models.Model):
-    question = models.CharField(max_length=200)
-    answer = models.TextField()
-
 class PhoneContact(models.Model):
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=30)
@@ -51,5 +47,8 @@ class MenuItem(models.Model):
     availableInMenu = models.ManyToManyField(Menu)
 
 class QuestionAnswer(models.Model):
-    question = models.TextField(max_length=400, verbose_name=u'Вопрос')
-    answer = models.TextField(max_length=400, verbose_name=u'Ответ')
+    question = models.TextField(verbose_name=u'Вопрос', max_length=1000)
+    answer = models.TextField(verbose_name=u'Ответ', max_length=2000)
+
+    def __unicode__(self):
+        return self.question

@@ -9,31 +9,13 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
 
-        # Changing field 'InsuranceProgramm.slug'
-        db.alter_column('core_insuranceprogramm', 'slug', self.gf('django.db.models.fields.SlugField')(max_length=50))
-        # Adding index on 'InsuranceProgramm', fields ['slug']
-        db.create_index('core_insuranceprogramm', ['slug'])
-
-
-        # Changing field 'Article.slug'
-        db.alter_column('core_article', 'slug', self.gf('django.db.models.fields.SlugField')(max_length=50))
-        # Adding index on 'Article', fields ['slug']
-        db.create_index('core_article', ['slug'])
-
+        # Changing field 'QuestionAnswer.question'
+        db.alter_column('core_questionanswer', 'question', self.gf('django.db.models.fields.CharField')(max_length=200))
 
     def backwards(self, orm):
-        # Removing index on 'Article', fields ['slug']
-        db.delete_index('core_article', ['slug'])
 
-        # Removing index on 'InsuranceProgramm', fields ['slug']
-        db.delete_index('core_insuranceprogramm', ['slug'])
-
-
-        # Changing field 'InsuranceProgramm.slug'
-        db.alter_column('core_insuranceprogramm', 'slug', self.gf('django.db.models.fields.URLField')(max_length=200))
-
-        # Changing field 'Article.slug'
-        db.alter_column('core_article', 'slug', self.gf('django.db.models.fields.URLField')(max_length=200))
+        # Changing field 'QuestionAnswer.question'
+        db.alter_column('core_questionanswer', 'question', self.gf('django.db.models.fields.TextField')())
 
     models = {
         'core.article': {

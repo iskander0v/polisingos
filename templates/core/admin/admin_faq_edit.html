@@ -11,7 +11,7 @@
     </script>
     <div class="row-fluid">
         <div class="span8">
-            <form action="{% url admin_faq_add %}" method="post">
+            <form action="{% url admin_faq_edit faq.id %}" method="post">
                 {% csrf_token %}
                 <fieldset>
                     <legend>Изменить вопрос-ответ</legend>

@@ -35,9 +35,9 @@ class ArticleForm(ModelForm):
 class FaqForm(ModelForm):
     question = CharField(widget=Textarea(attrs={'class': 'redactor'}),
         error_messages={'required': u'Обязательное поле'},
-        label=u'Вопрос')
+        label=u'Вопрос', max_length=1000)
     answer = CharField(widget=Textarea(attrs={'class': 'redactor'}),
         error_messages={'required': u'Обязательное поле'},
-        label=u'Ответ')
+        label=u'Ответ', max_length=2000)
     class Meta:
         model = QuestionAnswer
