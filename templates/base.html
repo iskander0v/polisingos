@@ -1,10 +1,149 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-    <title>{% block page_title %}Base Page{% endblock %}</title>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>{% block page_title %}title{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=1000">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="/static/js/jquery1.8.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
 </head>
 <body>
-{% block body_content %}{% endblock %}
+<div class="main">
+    <header>
+        <div class="header-in">
+            <div class="wrap clearfix">
+                <div class="logo"><a href="/"></a></div>
+                <div class="header-title">Международное медицинское страхование</div>
+                <div class="header-contact">
+                    <ul class="social clearfix">
+                        <li><a href="#" class="social-ico-1"></a></li>
+                        <li><a href="#" class="social-ico-2"></a></li>
+                        <li><a href="#" class="social-ico-3"></a></li>
+                        <li><a href="#" class="social-ico-4"></a></li>
+                    </ul>
+                    <a href="mailto:info@bupa.ru" class="mail-button">Написать письмо</a>
+                </div><!-- header-contact -->
+                <div class="header-phone clearfix">
+                    <p><span>(495) </span>&nbsp;920-36-12</p>
+                    <a href="#" class="call-button">Перезвоните мне!</a>
+                    <div class="call-panel">
+                        <label>Имя &nbsp;<span>(как к вам обращаться)</span>:</label>
+                        <div class="input-text-wrap clearfix">
+                            <input type="text" class="input-text">
+                        </div><!-- input-text-wrap -->
+                        <label>Телефон:</label>
+                        <div class="input-text-wrap clearfix">
+                            <input type="text" class="input-text">
+                        </div><!-- input-text-wrap -->
+                        <input type="button" class="request-call" value="Заказать Звонок">
+                        <div class="arrow-top"></div>
+                    </div><!-- call-panel -->
+                </div><!-- header-phone -->
+            </div><!-- wrap -->
+        </div><!-- header-in -->
+    </header>
+    <div class="top-panel">
+        <div class="wrap clearfix">
+            <div class="search clearfix">
+                <input type="text" class="input-text" value="Поиск по сайту" onblur="if(this.value==''){this.value='Поиск по сайту';}" onfocus="if(this.value=='Поиск по сайту'){this.value='';}">
+                <input type="button" class="search-button">
+            </div>
+            <nav class="menu">
+                <table>
+                    <tr>
+                        <td><a href="#">Сервис Bupa</a></td>
+                        <td class="active"><a href="#">Расчет и доставка</a></td>
+                        <td><a href="#">Полезная информация</a></td>
+                        <td><a href="#">Вопрос–ответ</a></td>
+                        <td class="last-child"><a href="#">Контакты</a></td>
+                    </tr>
+                </table>
+            </nav>
+        </div><!-- wrap -->
+    </div><!-- top-panel -->
+    <section class="content-columns">
+        <div class="wrap clearfix">
+            <aside class="sidebar">
+                <div class="sidebar-inside clearfix">
+                    <a href="#" class="orange-button">Заказать расчет</a>
+                    <ul class="sidebar-menu">
+                        <li><a href="#"><span>Частным лицам</span></a>
+                            <ul>
+                                <li><a href="#">Семьям</a></li>
+                                <li><a href="#">Будущим матерям</a></li>
+                                <li><a href="#">Детям</a></li>
+                                <li><a href="#">Тяжелобольным</a></li>
+                                <li><a href="#">Путешествующим</a></li>
+                                <li><a href="#">Студентам</a></li>
+                                <li><a href="#">Спортсменам</a></li>
+                                <li><a href="#">Владельцам зарубежной недвижимости</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><span>Компаниям</span></a>
+                            <ul>
+                                <li><a href="#">Семьям</a></li>
+                                <li><a href="#">Будущим матерям</a></li>
+                                <li><a href="#">Детям</a></li>
+                                <li><a href="#">Тяжелобольным</a></li>
+                                <li><a href="#">Путешествующим</a></li>
+                                <li><a href="#">Студентам</a></li>
+                                <li><a href="#">Спортсменам</a></li>
+                                <li><a href="#">Владельцам зарубежной недвижимости</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="med-programs"><a href="#">Медицинские программы</a></div>
+                    <div class="info">
+                        <div class="info-title">Полезная информация</div>
+                        <ul>
+                            <li><a href="#">Как выбрать программу</a></li>
+                            <li><a href="#">Преимущества Bupa</a></li>
+                            <li><a href="#">Программа Company Classic</a></li>
+                            <li><a href="#">Как работет наш сервис</a></li>
+                            <li><a href="#">План «Семейное страхование»</a></li>
+                        </ul>
+                    </div><!-- info -->
+                    <div class="faq">
+                        <div class="faq-in">
+                            <div class="faq-title">Возникли вопросы?</div>
+                            <p>Возможно ответ уже есть в нашем <a href="#">разделе помощи.</a></p>
+                        </div>
+                    </div><!-- faq -->
+                    <ul class="sidebar-logos clearfix">
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <div class="vk"><img src="/static/img/vk.jpg" width="220" height="279" alt="" style="display:block"></div>
+                    <div class="facebook"><img src="/static/img/facebook.jpg" width="220" height="305" alt="" style="display:block"></div>
+                </div><!-- sidebar-inside -->
+            </aside><!-- sidebar -->
+            {% block body_content %}{% endblock %}
+        </div><!-- wrap -->
+    </section><!-- content-columns -->
+    <div class="footer-push"></div>
+</div><!-- main -->
+<footer>
+    <div class="wrap clearfix">
+        <div class="copy">
+            &copy; 2013, Bupa Ru<br>Все права защищены
+        </div><!-- copy -->
+        <div class="footer-r clearfix">
+            <a href="#" class="site-map-link">Карта сайта</a>
+            <ul class="footer-menu clearfix">
+                <li><a href="#">Сервис Bupa</a></li>
+                <li><a href="#">Расчет и доставка</a></li>
+                <li><a href="#">Полезная информация</a></li>
+                <li><a href="#">Вопрос–ответ</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div><!-- footer-r -->
+    </div><!-- wrap -->
+</footer>
 </body>
 </html>

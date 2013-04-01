@@ -1,0 +1,10 @@
+.interview,
+.interview fieldset,
+.info-box .middle,
+.product-block-holder .house-list{
+	zoom: 1;
+}
+.menu .t,
+.menu .b {
+	width: expression(this.parentNode.offsetWidth-5);
+}
