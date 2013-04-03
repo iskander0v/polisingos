@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.forms import ModelForm, Textarea, CharField, TextInput, URLField
+from django.forms import ModelForm, Textarea, CharField, TextInput, URLField, DateField
+from django.forms.extras.widgets import SelectDateWidget
 from models import *
 
 class InsuranceProgrammForm(ModelForm):
@@ -41,3 +42,18 @@ class FaqForm(ModelForm):
         label=u'Ответ', max_length=2000)
     class Meta:
         model = QuestionAnswer
+
+class NewsForm(ModelForm):
+    title = CharField(widget=TextInput(attrs={'class': 'input-xxlarge', 'placeholder': u'Введите текст'}),
+                      error_messages={'required': u'Обязательное поле'},
+                      label=u'Заголовок новости')
+    anounce = CharField(widget=Textarea(attrs={'class': 'redactor'}),
+                       error_messages={'required': u'Обязательное поле'},
+                       label=u'Анонс', max_length=400)
+    text = CharField(widget=Textarea(attrs={'class': 'redactor'}),
+                     error_messages={'required': u'Обязательное поле'},
+                     label=u'Текст', max_length=2000)
+    date = DateField(widget=SelectDateWidget(), label=u'Дата',
+                     error_messages={'required': u'Обязательное поле'},)
+    class Meta:
+        model = News

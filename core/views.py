@@ -7,7 +7,10 @@ from django.template import RequestContext
 from forms import *
 
 def main_page(request):
-    return render_to_response('core/main.html')
+    news = News.objects.all().order_by('id')
+    return render_to_response('core/main.html',
+                              {'news': news},
+                              context_instance = RequestContext(request))
 
 def admin_main(request):
 
@@ -161,3 +164,37 @@ def admin_faq_edit(request, faq_id):
     return render_to_response('core/admin/admin_faq_edit.html',
         {'form': form, 'faq': faq},
         context_instance = RequestContext(request))
+
+@permission_required('core.add_news')
+def admin_news_list(request):
+    news = News.objects.all().order_by('id')
+    return render_to_response('core/admin/admin_news_list.html',
+                          {'news': news},
+                          context_instance=RequestContext(request))
+
+@permission_required('core.add_news')
+def admin_news_add(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.admin_news_list'))
+    else:
+        form = NewsForm()
+    return render_to_response('core/admin/admin_news_add.html',
+                              {'form': form},
+                              context_instance=RequestContext(request))
+
+@permission_required('core.add_news')
+def admin_news_edit(request, news_id):
+    news = get_object_or_404(News, pk=news_id)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, instance=news)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.admin_news_list'))
+    else:
+        form = NewsForm(instance=news)
+    return render_to_response('core/admin/admin_news_edit.html',
+                              {'form': form, 'news': news},
+                              context_instance = RequestContext(request))

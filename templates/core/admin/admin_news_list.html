@@ -1,0 +1,37 @@
+{% extends 'admin_base.html' %}
+
+{% block body_content %}
+    <div>
+        <div class="btn-group pull-right">
+            <a class="btn btn-small btn-primary" href="{% url admin_news_add %}">Добавить</a>
+            <a class="btn btn-small btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/back">Доп функции</a> </li>
+            </ul>
+        </div>
+        <p class="lead">Новости</p>
+    </div>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th style="width: 30px;">#</th>
+            <th>Название</th>
+            <th style="width: 30px;"></th>
+            <th style="width: 30px;"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in news %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url admin_news_edit item.id %}">{{ item.anounce|striptags|truncatewords:10 }}</a></td>
+                <td><a href="{% url admin_news_edit item.id %}"><i class="icon-pencil"></i></a></td>
+                <td><a href="#" ><i class="icon-eye-close"></i></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

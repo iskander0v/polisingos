@@ -15,6 +15,9 @@ urlpatterns = patterns('core.views',
     url(r'^content/faq/$', 'admin_faq_list', name='admin_faq_list'),
     url(r'^content/faq/add$', 'admin_faq_add', name='admin_faq_add'),
     url(r'^content/faq/(?P<faq_id>\d+)/$', 'admin_faq_edit', name='admin_faq_edit'),
+    url(r'^content/news/$', 'admin_news_list', name='admin_news_list'),
+    url(r'^content/news/add$', 'admin_news_add', name='admin_news_add'),
+    url(r'^content/news/(?P<news_id>\d+)/$', 'admin_news_edit', name='admin_news_edit'),
 )
 
 urlpatterns += patterns('',
