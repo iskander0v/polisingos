@@ -52,3 +52,12 @@ class QuestionAnswer(models.Model):
 
     def __unicode__(self):
         return self.question
+
+class News(models.Model):
+    title = models.CharField(max_length=200)
+    anounce = models.TextField(max_length=400)
+    text = models.TextField()
+    date = models.DateField()
+
+    def __unicode__(self):
+        return self.title
