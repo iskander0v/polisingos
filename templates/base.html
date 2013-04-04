@@ -1,3 +1,4 @@
+{% load coretags %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -57,11 +58,7 @@
             <nav class="menu">
                 <table>
                     <tr>
-                        <td><a href="#">Сервис Bupa</a></td>
-                        <td class="active"><a href="#">Расчет и доставка</a></td>
-                        <td><a href="#">Полезная информация</a></td>
-                        <td><a href="#">Вопрос–ответ</a></td>
-                        <td class="last-child"><a href="#">Контакты</a></td>
+                        {% show_menu 'main' %}
                     </tr>
                 </table>
             </nav>

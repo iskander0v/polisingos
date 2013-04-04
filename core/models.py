@@ -40,6 +40,8 @@ class Article(models.Model):
 
 class Menu(models.Model):
     alias = models.CharField(max_length=100)
+    textid = models.CharField(max_length=20, unique=True)
+    template = models.CharField(max_length=40)
 
 class MenuItem(models.Model):
     title = models.CharField(max_length=40)
