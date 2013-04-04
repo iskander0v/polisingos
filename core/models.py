@@ -38,15 +38,34 @@ class Article(models.Model):
     slug = models.SlugField()
     text = models.TextField()
 
+    def __unicode__(self):
+        return self.title
+
+class Category(models.Model):
+    title = models.CharField(max_length=40)
+    short_descr = models.CharField(max_length=140)
+    article = models.ForeignKey(Article)
+    client_type = models.ForeignKey(ClientType)
+    image_name = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return self.title
+
 class Menu(models.Model):
     alias = models.CharField(max_length=100)
     textid = models.CharField(max_length=20, unique=True)
     template = models.CharField(max_length=40)
 
+    def __unicode__(self):
+        return self.alias
+
 class MenuItem(models.Model):
     title = models.CharField(max_length=40)
     url = models.URLField()
     availableInMenu = models.ManyToManyField(Menu)
+
+    def __unicode__(self):
+        return self.title
 
 class QuestionAnswer(models.Model):
     question = models.TextField(verbose_name=u'Вопрос', max_length=1000)

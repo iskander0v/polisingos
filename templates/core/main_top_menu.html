@@ -1,5 +1,8 @@
- <td><a href="#">Сервис Bupa</a></td>
+{% for item in items %}
+<td {% if forloop.last %}class="last-child"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></td>
+{% endfor %}
+<!--
 <td class="active"><a href="#">Расчет и доставка</a></td>
 <td><a href="#">Полезная информация</a></td>
 <td><a href="#">Вопрос–ответ</a></td>
-<td class="last-child"><a href="#">Контакты</a></td>
+<td class="last-child"><a href="#">Контакты</a></td>-->

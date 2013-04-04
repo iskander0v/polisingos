@@ -12,6 +12,12 @@ def main_page(request):
                               {'news': news},
                               context_instance = RequestContext(request))
 
+def personal_page(request):
+    return render_to_response('core/personal_page.html', context_instance = RequestContext(request))
+
+def company_page(request):
+    return render_to_response('core/company_page.html', context_instance = RequestContext(request))
+
 def admin_main(request):
 
     if request.method == 'POST':
