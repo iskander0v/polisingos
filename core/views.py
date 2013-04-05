@@ -13,7 +13,10 @@ def main_page(request):
                               context_instance = RequestContext(request))
 
 def personal_page(request):
-    return render_to_response('core/personal_page.html', context_instance = RequestContext(request))
+    categories = Category.objects.filter(client_type__type_id='PR')
+    return render_to_response('core/personal_page.html',
+                              {'categories': categories},
+                              context_instance = RequestContext(request))
 
 def company_page(request):
     return render_to_response('core/company_page.html', context_instance = RequestContext(request))

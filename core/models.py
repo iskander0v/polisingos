@@ -13,8 +13,13 @@ class InsuranceProgramm(models.Model):
         verbose_name = u'Программа страхования'
 
 class ClientType(models.Model):
+    CLIENT_TYPE_IDS = (
+        ('PR', 'Private'),
+        ('CP', 'Companies'),
+    )
     name = models.CharField(max_length=100, verbose_name=u'Тип клиента')
     programms = models.ManyToManyField(InsuranceProgramm, verbose_name=u'Доступные программы')
+    type_id = models.CharField(max_length=2, choices=CLIENT_TYPE_IDS)
 
     def __unicode__(self):
         return self.name

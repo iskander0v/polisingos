@@ -13,70 +13,16 @@
                 <p>Основная стадия проведения рыночного исследования интегрирована. Спонсорство, суммируя приведенные примеры, традиционно транслирует PR, отвоевывая <a href="#">рыночный сегмент</a>. Надо сказать, что маркетинг специфицирует эксклюзивный направленный маркетинг, используя опыт предыдущих кампаний выполненного проекта в этих рамках.</p>
                 <h2>Выберите свою категорию:</h2>
                 <div class="category-all clearfix">
+                    {% for category in categories %}
                     <div class="category clearfix">
-                        <img src="/static/img/category-img-1.png" width="93" height="84" alt="">
+                        <img src="/static/img/{{ category.image_name }}" width="93" height="84" alt="">
                         <div class="category-desc">
-                            <div class="category-title">Для всей семьи</div>
-                            <p>Беспристрастный анализ любого творческого акта показывает, что неверно иллюстрирует хорал.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
+                            <div class="category-title">{{ category.title }}</div>
+                            <p>{{ category.short_descr|truncatewords:10 }}</p>
+                            <a href="#" class="category-button">Подробнее</a>
                         </div><!-- category-desc -->
                     </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-2.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title">Будущая мама</div>
-                            <p>Первым приближении, арендует модернизм, таким образом, все перечисленные признаки</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-3.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title">Ребенок</div>
-                            <p>Подтверждают, что действие механизмов мифотворчества сродни механизмам.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-4.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title">Тяжелобольной</div>
-                            <p>Отличительной чертой поверхности, сложенной излияниями текучей лавы.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-5.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title">Путешествующий</div>
-                            <p>Синтаксис искусства варьирует художественный ритуал, делая этот вопрос актуальным.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-6.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title">Студент</div>
-                            <p>Фарс разогревает основной Кодекс, когда речь идет об ответственности лица.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-7.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title">Спортсмен</div>
-                            <p>Мантия готично начинает друмлин, и в то же время устанавливается цоколь.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
-                    <div class="category clearfix">
-                        <img src="/static/img/category-img-8.png" width="93" height="84" alt="">
-                        <div class="category-desc">
-                            <div class="category-title category-title-2">Владелец зарубежной недвижимости</div>
-                            <p>Интерес представляет и тот факт, что страховой полис.</p>
-                            <a href="#" class="category-button">Заказать расчет</a>
-                        </div><!-- category-desc -->
-                    </div><!-- category -->
+                    {% endfor %}
                 </div><!-- category-all -->
                 <h2>Как сделать правильный выбор</h2>
                 <p>Косвенная реклама неестественно определяет медиаплан, признавая определенные рыночные тенденции. Сервисная стратегия ускоряет <a href="#">потребительский рейтинг</a>, осознав маркетинг как часть производства. Размещение недостижимо. Стратегическое планирование нетривиально. Искусство медиапланирования спонтанно масштабирует принцип восприятия, не считаясь с затратами. CTR, в рамках <strong>сегодняшних воззрений</strong>:</p>
