@@ -70,30 +70,8 @@
                 <div class="sidebar-inside clearfix">
                     <a href="#" class="orange-button">Заказать расчет</a>
                     <ul class="sidebar-menu">
-                        <li class="active"><a href="/personal"><span>Частным лицам</span></a>
-                            <ul>
-                                <li><a href="#">Семьям</a></li>
-                                <li><a href="#">Будущим матерям</a></li>
-                                <li><a href="#">Детям</a></li>
-                                <li><a href="#">Тяжелобольным</a></li>
-                                <li><a href="#">Путешествующим</a></li>
-                                <li><a href="#">Студентам</a></li>
-                                <li><a href="#">Спортсменам</a></li>
-                                <li><a href="#">Владельцам зарубежной недвижимости</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/company"><span>Компаниям</span></a>
-                            <ul>
-                                <li><a href="#">Семьям</a></li>
-                                <li><a href="#">Будущим матерям</a></li>
-                                <li><a href="#">Детям</a></li>
-                                <li><a href="#">Тяжелобольным</a></li>
-                                <li><a href="#">Путешествующим</a></li>
-                                <li><a href="#">Студентам</a></li>
-                                <li><a href="#">Спортсменам</a></li>
-                                <li><a href="#">Владельцам зарубежной недвижимости</a></li>
-                            </ul>
-                        </li>
+                        {% show_side_menu 'PR' %}
+                        {% show_side_menu 'CP' %}
                     </ul>
                     <div class="med-programs"><a href="#">Медицинские программы</a></div>
                     <div class="info">

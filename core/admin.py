@@ -4,3 +4,4 @@ from core.models import *
 admin.site.register(Menu)
 admin.site.register(MenuItem)
 admin.site.register(Category)
+admin.site.register(ClientType)

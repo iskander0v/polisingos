@@ -19,7 +19,7 @@
                         <div class="category-desc">
                             <div class="category-title">{{ category.title }}</div>
                             <p>{{ category.short_descr|truncatewords:10 }}</p>
-                            <a href="#" class="category-button">Подробнее</a>
+                            <a href="/article/{{ category.article.slug }}" class="category-button">Подробнее</a>
                         </div><!-- category-desc -->
                     </div><!-- category -->
                     {% endfor %}

@@ -19,7 +19,49 @@ def personal_page(request):
                               context_instance = RequestContext(request))
 
 def company_page(request):
-    return render_to_response('core/company_page.html', context_instance = RequestContext(request))
+    categories = Category.objects.filter(client_type__type_id='CP')
+    return render_to_response('core/company_page.html',
+                              {'categories': categories},
+                              context_instance = RequestContext(request))
+
+def news(request):
+    news = News.objects.all().order_by('id')
+    return render_to_response('core/news.html',
+                              {'news': news},
+                              context_instance = RequestContext(request))
+
+def news_item(request, id):
+    news_item = get_object_or_404(News, pk=id)
+    return render_to_response('core/news_item.html',
+                              {'item': news_item},
+                              context_instance = RequestContext(request))
+
+def filtered_news(request, year=2013, month=None):
+    news = []
+    for item in News.objects.all():
+        if month != None:
+            if item.date.month >= int(month) and item.date.year >= int(year):
+                news.append(item)
+        else:
+            news.append(item)
+
+    return render_to_response('core/news.html',
+                              {'news': news},
+                              context_instance = RequestContext(request))
+
+def articles(request):
+    return render_to_response('core/article_list.html',
+                              context_instance = RequestContext(request))
+
+def article(request, slug):
+    return render_to_response('core/article.html',
+                              context_instance = RequestContext(request))
+
+def category(request, slug):
+    cat = Category.objects.filter(article__slug=slug)[0]
+    return render_to_response('core/category.html',
+                              {'category': cat},
+                              context_instance = RequestContext(request))
 
 def admin_main(request):
 

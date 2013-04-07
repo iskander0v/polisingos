@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Bupa.ru{% endblock %}
+{% block body_content %}
+<section class="content">
+    <div class="content-inside clearfix">
+        <div class="text clearfix">
+            <ul class="breadcrumbs clearfix">
+                <li><a href="/">Bupa Ru</a>&nbsp;&rarr;&nbsp;</li>
+                <li><a href="/news/">Новости</a>&nbsp;&rarr;&nbsp;</li>
+                <li><a href="/news/{{ item.date|date:"Y" }}/">{{ item.date|date:"Y" }}</a>&nbsp;&rarr;&nbsp;</li>
+                <li><a href="/news/{{ item.date|date:"Y" }}/{{ item.date|date:"m" }}">{{ item.date|date:"m" }}</a></li>
+            </ul>
+            <h1>{{ item.title }}</h1>
+            {{ item.text|safe }}
+        </div>
+    </div>
+</section>
+{% endblock %}

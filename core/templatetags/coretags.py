@@ -1,5 +1,5 @@
 from django import template
-from core.models import Menu, MenuItem
+from core.models import *
 from django.template import loader, Context
 
 register = template.Library()
@@ -18,6 +18,16 @@ def show_menu(textid):
     t = loader.get_template(menu.template)
     c = Context({'items': menu_items })
     return t.render(c)
+
+@register.inclusion_tag('core/side_type_menu.html', takes_context=True)
+def show_side_menu(context, type):
+    categories = Category.objects.filter(client_type__type_id=type)
+    request = context['request']
+    active = False
+    if (request.path.find('personal') != -1 and type == 'PR') or (request.path.find('company') != -1 and type == 'CP'):
+        active = True
+    return {'type': type, 'items': categories, 'active': active}
+
 
 # @register.inclusion_tag('main_menu.html', takes_context=True)
 # def show_menu(context):
