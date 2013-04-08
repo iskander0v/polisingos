@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'news/(?P<year>\d{4})/(?P<month>\d{2})/$', 'core.views.filtered_news', name='filtered_news'),
     url(r'articles/$', 'core.views.articles', name='articles'),
     url(r'article/(?P<slug>[A-Za-z0-9_-]+)/$', 'core.views.article', name='article'),
-    url(r'category/(?P<slug>[A-Za-z0-9_-]+)/$', 'core.views.category', name='category'),
+    url(r'^category/(?P<slug>[A-Za-z0-9_-]+)/$', 'core.views.category', name='category'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
