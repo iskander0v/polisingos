@@ -1,5 +1,8 @@
 {% for item in items %}
-<td {% if forloop.last %}class="last-child"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></td>
+<td {% if forloop.last %}class="last-child"{% endif %}><a href="
+{% if item.article  %}/article/{{ item.article.slug }}
+{% elif item.url %}{{ item.url }}
+{% endif %}">{{ item.title }}</a></td>
 {% endfor %}
 <!--
 <td class="active"><a href="#">Расчет и доставка</a></td>
