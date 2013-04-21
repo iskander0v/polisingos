@@ -1,0 +1,8 @@
+<div class="info">
+    <div class="info-title">Полезная информация</div>
+    <ul>
+        {% for item in articles %}
+            <li><a href="/article/{{ item.slug }}">{{ item.title }}</a></li>
+        {%  endfor %}
+    </ul>
+</div><!-- info -->

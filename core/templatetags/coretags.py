@@ -28,6 +28,10 @@ def show_side_menu(context, type):
         active = True
     return {'type': type, 'items': categories, 'active': active}
 
+@register.inclusion_tag('core/side_info_block.html', takes_context=True)
+def show_info_block(context):
+    articles = Article.objects.all()[:5]
+    return {'articles': articles}
 
 # @register.inclusion_tag('main_menu.html', takes_context=True)
 # def show_menu(context):
