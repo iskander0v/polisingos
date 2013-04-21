@@ -13,7 +13,7 @@ def main_page(request):
                               context_instance = RequestContext(request))
 
 def personal_page(request):
-    categories = Category.objects.filter(client_type__type_id='PR')
+    categories = Category.objects.filter(client_type__type_id='PR').order_by('order')
     return render_to_response('core/personal_page.html',
                               {'categories': categories},
                               context_instance = RequestContext(request))
