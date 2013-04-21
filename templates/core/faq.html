@@ -13,8 +13,10 @@
                 <div class="news">
                     {% for item in faqs %}
                         <div class="news-item clearfix">
-                            <div class="news-item-name">{{ item.question|safe }}</div>
-                            <div class="news-item-name">{{ item.answer|safe }}</div>
+                            <div class="news-item-name"><a href="javascript:void();" onclick="$('.faq-answer').hide();$('#faq{{ item.id }}').show();">{{ item.question|safe|truncatewords_html:'a' }}</a></div>
+                            <div class="news-item-name faq-answer" id="faq{{ item.id }}" style="display: none;">
+                                <div style="font-size:14px; font-weight: bold;">Ответ:</div>
+                                {{ item.answer|safe }}</div>
                         </div><!-- news-item -->
                     {% endfor %}
                 </div><!-- news -->
