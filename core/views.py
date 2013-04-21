@@ -50,11 +50,15 @@ def filtered_news(request, year=2013, month=None):
                               context_instance = RequestContext(request))
 
 def articles(request):
+    articles = Article.objects.all()[:5]
     return render_to_response('core/article_list.html',
+                              { 'articles': articles },
                               context_instance = RequestContext(request))
 
 def article(request, slug):
+    article = Article.objects.get(slug=slug)
     return render_to_response('core/article.html',
+                              {'article':article},
                               context_instance = RequestContext(request))
 
 def category(request, slug):
@@ -62,6 +66,18 @@ def category(request, slug):
     return render_to_response('core/category.html',
                               {'category': cat},
                               context_instance = RequestContext(request))
+
+def calculate(request):
+    form = QuoteForm()
+    return render_to_response('core/request_form.html',
+        {'form': form},
+        context_instance = RequestContext(request))
+
+def faq(request):
+    faqs = QuestionAnswer.objects.all();
+    return render_to_response('core/faq.html',
+        {'faqs': faqs},
+        context_instance = RequestContext(request))
 
 def admin_main(request):
 

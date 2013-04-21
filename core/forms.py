@@ -57,3 +57,7 @@ class NewsForm(ModelForm):
                      error_messages={'required': u'Обязательное поле'},)
     class Meta:
         model = News
+
+class QuoteForm(ModelForm):
+    class Meta:
+        model = QuoteRequest

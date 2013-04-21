@@ -69,6 +69,7 @@ class MenuItem(models.Model):
     url = models.SlugField(null=True, blank=True)
     article = models.ForeignKey(Article, null=True, blank=True)
     availableInMenu = models.ManyToManyField(Menu)
+    order = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.title

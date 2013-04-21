@@ -14,7 +14,7 @@ def active(request, pattern):
 @register.simple_tag
 def show_menu(textid):
     menu = Menu.objects.get(textid=textid)
-    menu_items = MenuItem.objects.filter(availableInMenu=menu.id)
+    menu_items = MenuItem.objects.filter(availableInMenu=menu.id).order_by('order')
     t = loader.get_template(menu.template)
     c = Context({'items': menu_items })
     return t.render(c)

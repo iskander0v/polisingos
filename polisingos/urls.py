@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'articles/$', 'core.views.articles', name='articles'),
     url(r'article/(?P<slug>[A-Za-z0-9_-]+)/$', 'core.views.article', name='article'),
     url(r'^category/(?P<slug>[A-Za-z0-9_-]+)/$', 'core.views.category', name='category'),
+    url(r'^order/calculate/$', 'core.views.calculate', name='calculate'),
+    url(r'^faq/$', 'core.views.faq', name='faq'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

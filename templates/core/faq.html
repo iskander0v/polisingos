@@ -7,14 +7,14 @@
             <div class="text clearfix">
                 <ul class="breadcrumbs clearfix">
                     <li><a href="/">Bupa Ru</a>&nbsp;&rarr;&nbsp;</li>
-                    <li>Полезная информация</li>
+                    <li>Faq</li>
                 </ul>
-                <h1>Полезная информация</h1>
+                <h1>Часто задаваемые вопросы</h1>
                 <div class="news">
-                    {% for item in articles %}
+                    {% for item in faqs %}
                         <div class="news-item clearfix">
-                            <div class="news-item-name"><a href="/article/{{ item.slug }}">{{ item.title }}</a></div>
-                            {{ item.text|safe|truncatewords:40 }}
+                            <div class="news-item-name">{{ item.question|safe }}</div>
+                            <div class="news-item-name">{{ item.answer|safe }}</div>
                         </div><!-- news-item -->
                     {% endfor %}
                 </div><!-- news -->
