@@ -16,7 +16,7 @@
                         <img src="/static/img/{{ category.image_name }}" width="93" height="84" alt="">
                         <div class="category-desc">
                             <div class="category-title">{{ category.title }}</div>
-                            <p>{{ category.short_descr|truncatewords:10 }}</p>
+                            <p>{{ category.article.text|removetags:'a p strong'|truncatechars:90 }}</p>
                             <a href="/category/{{ category.article.slug }}" class="category-button">Подробнее</a>
                         </div><!-- category-desc -->
                     </div><!-- category -->
