@@ -24,7 +24,25 @@ def show_side_menu(context, type):
     categories = Category.objects.filter(client_type__type_id=type)
     request = context['request']
     active = False
-    if (request.path.find('personal') != -1 and type == 'PR') or (request.path.find('company') != -1 and type == 'CP'):
+
+    slugs = request.path.split('/')
+    private_cat = Category.objects.filter(client_type__type_id='PR')
+    in_private = False
+    for cat in private_cat:
+        in_private = 'personal' in slugs
+        if in_private:
+            break
+        in_private = cat.article.slug in slugs
+
+    company_cat = Category.objects.filter(client_type__type_id='CP')
+    in_company = False
+    for cat in company_cat:
+        in_company = 'company' in slugs
+        if in_company:
+            break
+        in_company = cat.article.slug in slugs
+
+    if (in_private and type == 'PR') or (in_company and type == 'CP'):
         active = True
     return {'type': type, 'items': categories, 'active': active}
 
