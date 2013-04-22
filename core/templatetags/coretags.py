@@ -29,16 +29,16 @@ def show_side_menu(context, type):
     private_cat = Category.objects.filter(client_type__type_id='PR')
     in_private = False
     for cat in private_cat:
-        in_private = 'personal' in slugs
-        if in_private:
+        if in_private or 'personal' in slugs:
+            in_private = True
             break
         in_private = cat.article.slug in slugs
 
     company_cat = Category.objects.filter(client_type__type_id='CP')
     in_company = False
     for cat in company_cat:
-        in_company = 'company' in slugs
-        if in_company:
+        if in_company or 'company' in slugs:
+            in_company = True
             break
         in_company = cat.article.slug in slugs
 
