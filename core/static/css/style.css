@@ -110,6 +110,9 @@ header .logo a{display:block; background:url(/static/img/logo.png) no-repeat 0 0
 
 .input-text-wrap{position:relative;}
 .input-text{display:block; width:170px; height:20px; border:1px solid #e4e4e4; background:#fff; padding:4px 5px 4px 11px; font-size:13px; line-height:20px; color:#5c7d80; -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.035); -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.035); box-shadow:inset 0 1px 1px rgba(0,0,0,0.035);}
+.textarea-text{display:block; border:1px solid #e4e4e4; background:#fff; padding:4px 5px 4px 11px; font-size:13px; line-height:20px; color:#5c7d80; -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.035); -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.035); box-shadow:inset 0 1px 1px rgba(0,0,0,0.035);}
+.textarea-text:hover,
+.textarea-text:focus,
 .input-text:hover,
 .input-text:focus{border-color:#5fc5c5; -moz-box-shadow:inset 0 1px 1px rgba(95,197,197,0.19); -webkit-box-shadow:inset 0 1px 1px rgba(95,197,197,0.19); box-shadow:inset 0 1px 1px rgba(95,197,197,0.19);}
 .input-text-wrap.error .input-text{border-color:#eeaaaa; color:#c76c6c; -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.035); -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.035); box-shadow:inset 0 1px 1px rgba(0,0,0,0.035);}
@@ -242,7 +245,7 @@ ul.tabs li:first-child{width:348px; border:0; -webkit-border-top-left-radius:4px
 ul.tabs li.active{background:#fcfcfc; cursor:default; color:#058895;}
 
 .form-person-in{padding:40px 35px 21px; border-bottom:1px solid #e4e4e4; margin:0 0 39px;}
-.label-text{display:block; padding:22px 0 6px;}
+.label-text{display:block; padding:10px 0 0;}
 .label-text span{color:#a1b8ba;}
 .input-text-313-32{width:295px; padding-top:5px; padding-bottom:5px;}
 .input-text-240-32 .input-text{width:222px; padding-top:5px; padding-bottom:5px;}

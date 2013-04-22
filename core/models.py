@@ -33,10 +33,20 @@ class PhoneContact(models.Model):
     callInTime = models.TimeField()
 
 class QuoteRequest(models.Model):
-    leadName = models.CharField(max_length=100)
-    programm = models.ForeignKey(InsuranceProgramm)
-    email = models.EmailField()
-    phone = models.CharField(max_length=30)
+    QUOTE_TYPE = (
+        ('F', u'Физическое лицо'),
+        ('C', u'Компания'),
+    )
+    client_type = models.CharField(max_length=1, choices=QUOTE_TYPE, default='F')
+    name = models.CharField(max_length=100)
+    contact_name = models.CharField(max_length=100, null=True, blank=True)
+    client_age = models.IntegerField()
+    email_or_phone = models.CharField(max_length=50)
+    country = models.CharField(max_length=50, default=u'Россия')
+    comment = models.CharField(max_length=400, null=True, blank=True)
+
+    class Meta:
+        verbose_name = u'Запрос расчета'
 
 class Article(models.Model):
     title = models.CharField(max_length=100)

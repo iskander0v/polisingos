@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Bupa.ru{% endblock %}
+{% block body_content %}
+    <section class="content" xmlns="http://www.w3.org/1999/html">
+        <div class="content-inside clearfix">
+            <div class="text clearfix">
+                <ul class="breadcrumbs clearfix">
+                    <li><a href="/">Bupa Ru</a></li>
+                </ul>
+                <h1>Заказ на расчет полиса</h1>
+                <form id="submit_form" action="/order/calculate/" method="post">{% csrf_token %}
+                <div id="tab" class="form-person">
+                    <div class="form-person-in clearfix ">
+                        {% include 'core/form/order_form.html' %}
+                    </div>
+                    <a onclick="$('#submit_form').submit();" class="orange-button orange-button-content" >оформить заказ</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

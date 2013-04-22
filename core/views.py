@@ -68,7 +68,13 @@ def category(request, slug):
                               context_instance = RequestContext(request))
 
 def calculate(request):
-    form = QuoteForm()
+    if request.method == 'POST':
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('core.views.main_page'))
+    else:
+        form = QuoteForm()
     return render_to_response('core/request_form.html',
         {'form': form},
         context_instance = RequestContext(request))

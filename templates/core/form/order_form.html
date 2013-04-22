@@ -1,0 +1,29 @@
+{% for field in form %}
+    {% if field.label %}
+    <label class="label-text" for="id_{{ field.html_name }}">{{ field.label }}</label>
+    {% endif %}
+    <div class="input-text-wrap clearfix {% if field.errors|length > 0 %}error{% endif %}">
+        {{ field }}
+        {% if field.errors|length > 0 %}
+            <div class="input-text-error">
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+                <span></span>
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{#<label class="label-text">Имя <span>(как к вам обращаться)</span>:</label>#}
+{#<div class="input-text-wrap error clearfix">#}
+{#    <input type="text" class="input-text input-text-313-32">#}
+{##}
+{#</div>#}
+{##}
+{#<!-- input-text-wrap -->#}
+{#<label class="label-text">Адрес электронной почты:</label>#}
+{#<div class="input-text-wrap clearfix">#}
+{#    <input type="text" class="input-text input-text-313-32">#}
+{#    <div class="input-text-error">Имя должно содержать только буквы<span></span></div>#}
+{#</div><!-- input-text-wrap -->#}
