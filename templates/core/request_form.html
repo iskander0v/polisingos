@@ -2,6 +2,61 @@
 
 {% block page_title %}Bupa.ru{% endblock %}
 {% block body_content %}
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('input[name=client_type]:radio').click(function(){activateFieldsByType();})
+
+            $('#id_contact_name').attr('disabled','disabled');
+            $('#id_contact_name_wrap').hide();
+            $('label[for=id_contact_name]').hide();
+            if('{{ form.client_type.value }}' == 'C')
+            {
+                $('#client_type_f').attr('checked', 'checked');
+                activateFieldsByType();
+            }
+            else if ('{{ form.client_type.value }}' == 'F')
+            {
+                $('#client_type_c').attr('checked', 'checked');
+                activateFieldsByType();
+            }
+
+
+        });
+        function activateFieldsByType(){
+            if ($('input[name=client_type]:checked').length > 0) {
+                var id = $('input[name=client_type]:checked').attr('id');
+                if(id == 'client_type_f'){
+                    $('#client_type_c').attr('checked', 'checked');
+                    $('label[for=id_name]').text('Название компании');
+
+                    $('label[for=id_contact_name]').show();
+                    $('#id_contact_name').removeAttr('disabled');
+                    $('#id_contact_name_wrap').show();
+
+                    $('label[for=id_client_age]').hide();
+                    $('#id_client_age').attr('disabled','disabled');
+                    $('#id_client_age_wrap').hide();
+                }
+                else if(id == 'client_type_c'){
+                    $('#client_type_f').attr('checked', 'checked');
+                    $('label[for=id_name]').text('Имя');
+
+                    $('label[for=id_contact_name]').hide();
+                    $('#id_contact_name').attr('disabled','disabled');
+                    $('#id_contact_name_wrap').hide();
+
+                    $('label[for=id_client_age]').show();
+                    $('#id_client_age').removeAttr('disabled');
+                    $('#id_client_age_wrap').show();
+                }
+            }
+            else
+            {
+                $('#client_type_f').attr('checked', 'checked');
+            }
+        }
+    </script>
     <section class="content" xmlns="http://www.w3.org/1999/html">
         <div class="content-inside clearfix">
             <div class="text clearfix">
@@ -12,7 +67,74 @@
                 <form id="submit_form" action="/order/calculate/" method="post">{% csrf_token %}
                 <div id="tab" class="form-person">
                     <div class="form-person-in clearfix ">
-                        {% include 'core/form/order_form.html' %}
+                        {{ form.non_field_errors }}
+                        <input type="radio" name="client_type" id="client_type_f" value="F" onclick="activateFieldsByType();"> Физическое лицо<Br>
+                        <input type="radio" name="client_type" id="client_type_c" value="C" onclick="activateFieldsByType();"> Компания<Br>
+
+                        <label class="label-text" for="id_name">{{ form.name.label }}</label>
+                        <div class="input-text-wrap clearfix {% if form.name.errors|length > 0 %}error{% endif %}">
+                            {{ form.name }}
+                            {% if form.name.errors|length > 0 %}
+                                <div class="input-text-error">
+                                    {% for error in form.name.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                    <span></span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <label class="label-text" for="id_contact_name">{{ form.contact_name.label }}</label>
+                        <div id="id_contact_name_wrap" class="input-text-wrap clearfix {% if form.contact_name.errors|length > 0 %}error{% endif %}">
+                            {{ form.contact_name }}
+                            {% if form.contact_name.errors|length > 0 %}
+                                <div class="input-text-error">
+                                    {% for error in form.contact_name.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                    <span></span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <label class="label-text" for="id_email_or_phone">{{ form.email_or_phone.label }}</label>
+                        <div class="input-text-wrap clearfix {% if form.email_or_phone.errors|length > 0 %}error{% endif %}">
+                            {{ form.email_or_phone }}
+                            {% if form.email_or_phone.errors|length > 0 %}
+                                <div class="input-text-error">
+                                    {% for error in form.email_or_phone.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                    <span></span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <label class="label-text" for="id_country">{{ form.country.label }}</label>
+                        <div class="input-text-wrap clearfix {% if form.country.errors|length > 0 %}error{% endif %}">
+                            {{ form.country }}
+                            {% if form.country.errors|length > 0 %}
+                                <div class="input-text-error">
+                                    {% for error in form.country.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                    <span></span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <label class="label-text" for="id_client_age">{{ form.client_age.label }}</label>
+                        <div id="id_client_age_wrap" class="input-text-wrap clearfix {% if form.client_age.errors|length > 0 %}error{% endif %}">
+                            {{ form.client_age }}
+                            {% if form.client_age.errors|length > 0 %}
+                                <div class="input-text-error">
+                                    {% for error in form.client_age.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                    <span></span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <label class="label-text" for="id_comment">{{ form.comment.label }}</label>
+                        <div class="input-text-wrap clearfix">
+                            {{ form.comment }}
+                        </div>
                     </div>
                     <a onclick="$('#submit_form').submit();" class="orange-button orange-button-content" >оформить заказ</a>
                 </div>

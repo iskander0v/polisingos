@@ -40,7 +40,7 @@ class QuoteRequest(models.Model):
     client_type = models.CharField(max_length=1, choices=QUOTE_TYPE, default='F')
     name = models.CharField(max_length=100)
     contact_name = models.CharField(max_length=100, null=True, blank=True)
-    client_age = models.IntegerField()
+    client_age = models.IntegerField(null=True, blank=True)
     email_or_phone = models.CharField(max_length=50)
     country = models.CharField(max_length=50, default=u'Россия')
     comment = models.CharField(max_length=400, null=True, blank=True)

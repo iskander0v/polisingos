@@ -71,7 +71,25 @@ class QuoteForm(ModelForm):
                                 error_messages={'required': u'Обязательное поле'},label=u'Основная страна пребывания')
     client_age = IntegerField(widget=TextInput(attrs={'class': 'input-text input-text-313-32'}),
                                 error_messages={'required': u'Обязательное поле'},label=u'Возраст')
-    comment = CharField(required=False,  widget=Textarea(attrs={'class': 'textarea-text', 'rows': '6', 'cols': '90'}), label=u'Ваш комментарий')
+    comment = CharField(required=False,  widget=Textarea(attrs={'class': 'textarea-text', 'rows': '6', 'cols': '90'}), label=u'Ваши комментарии и пожелания')
+
+    def clean(self):
+        cleaned_data = super(QuoteForm, self).clean()
+        client_type = cleaned_data.get("client_type", None)
+
+        if client_type is None:
+            return cleaned_data
+
+        contact_name = cleaned_data.get("contact_name", None)
+        client_age = cleaned_data.get("client_age", None)
+
+        if client_type == 'C' and client_age is None:
+            del self._errors["client_age"]
+        if client_type == 'F' and contact_name is None:
+            del self._errors["contact_name"]
+
+        # Always return the full collection of cleaned data.
+        return cleaned_data
 
     class Meta:
         model = QuoteRequest
