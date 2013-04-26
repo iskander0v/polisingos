@@ -91,6 +91,10 @@ def contacts(request):
 def programms(request):
     return render_to_response('core/programms.html', context_instance=RequestContext(request))
 
+def programm(request, id):
+    programm = get_object_or_404(InsuranceProgramm, pk=id)
+    return render_to_response('core/programm.html', {'programm':programm}, context_instance=RequestContext(request))
+
 def admin_main(request):
 
     if request.method == 'POST':

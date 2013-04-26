@@ -5,6 +5,7 @@ class InsuranceProgramm(models.Model):
     name = models.CharField(max_length=100, verbose_name=u'Название программы')
     slug = models.SlugField(verbose_name=u'URL адрес')
     description = models.TextField(verbose_name=u'Описание')
+    table = models.TextField(verbose_name=u'Таблица')
 
     def __unicode__(self):
         return self.name

@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^faq/$', 'core.views.faq', name='faq'),
     url(r'^contacts/$', 'core.views.contacts', name='contacts'),
     url(r'^programms/$', 'core.views.programms', name='programms'),
+    url(r'^programms/(?P<id>\w+)/$', 'core.views.programm', name='programm'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
