@@ -88,6 +88,9 @@ def faq(request):
 def contacts(request):
     return render_to_response('core/contacts.html', context_instance=RequestContext(request))
 
+def programms(request):
+    return render_to_response('core/programms.html', context_instance=RequestContext(request))
+
 def admin_main(request):
 
     if request.method == 'POST':

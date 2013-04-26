@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^order/calculate/$', 'core.views.calculate', name='calculate'),
     url(r'^faq/$', 'core.views.faq', name='faq'),
     url(r'^contacts/$', 'core.views.contacts', name='contacts'),
+    url(r'^programms/$', 'core.views.programms', name='programms'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
