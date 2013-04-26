@@ -13,6 +13,9 @@ class InsuranceProgrammForm(ModelForm):
     slug = CharField(widget=TextInput(attrs={'class': 'input-xxlarge', 'placeholder': u'Введите адрес'}),
         error_messages={'required': u'Обязательное поле'},
         label=u'URL адрес')
+    table = CharField(widget=Textarea(attrs={'class': 'redactor'}),
+                            error_messages={'required': u'Обязательное поле'},
+                            label=u'Таблица')
     class Meta:
         model = InsuranceProgramm
 
