@@ -10,9 +10,13 @@
 
                 </ul>
                 <h1>{{ programm.name }}</h1>
+                {% ifequal programm.table 'none' %}
+                    {{ programm.description|safe }}
+                {% else %}
                 <div class="programm-table">
                 {{ programm.table|safe }}
                 </div>
+                {% endifequal %}
             </div>
         </div>
     </section>
