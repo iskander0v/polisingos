@@ -248,8 +248,9 @@ ul.breadcrumbs li a{float:left;}
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00cde0', endColorstr='#07a8c4',GradientType=0 ); /* IE6-9 */
     border: 1px #158d9a solid;
     text-align: center;
-    color: rgba(6, 66, 114, 0.74);;
-    text-shadow: 1px 1px 0px rgb(235, 235, 235);}
+    color: #ffffff;
+    text-shadow: 1px 1px 0px rgb(80, 105, 112);
+}
 .option-green {
     background: #56cace; /* Old browsers */
     background: -moz-linear-gradient(top, #56cace 0%, #058895 100%); /* FF3.6+ */
