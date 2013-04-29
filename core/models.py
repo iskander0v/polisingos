@@ -54,6 +54,7 @@ class Article(models.Model):
     slug = models.SlugField()
     text = models.TextField()
     is_helpful = models.BooleanField(default=False)
+    order_helpful = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.title

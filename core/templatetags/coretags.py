@@ -48,7 +48,7 @@ def show_side_menu(context, type):
 
 @register.inclusion_tag('core/side_info_block.html', takes_context=True)
 def show_info_block(context):
-    articles = Article.objects.filter(is_helpful=True)[:5]
+    articles = Article.objects.filter(is_helpful=True).order_by('order_helpful')[:5]
     return {'articles': articles}
 
 # @register.inclusion_tag('main_menu.html', takes_context=True)
