@@ -67,7 +67,7 @@ class QuoteForm(ModelForm):
     name = CharField(widget=TextInput(attrs={'class': 'input-text input-text-313-32'}),
                                 error_messages={'required': u'Обязательное поле'},label=u'Имя')
     contact_name = CharField(widget=TextInput(attrs={'class': 'input-text input-text-313-32'}),
-                                error_messages={'required': u'Обязательное поле'},label=u'Контактная информация')
+                                error_messages={'required': u'Обязательное поле'},label=u'Контактное лицо(ФИО, должность')
     email_or_phone = CharField(widget=TextInput(attrs={'class': 'input-text input-text-313-32'}),
                                 error_messages={'required': u'Обязательное поле'},label=u'Телефон или E-mail')
     country = CharField(widget=TextInput(attrs={'class': 'input-text input-text-313-32'}),

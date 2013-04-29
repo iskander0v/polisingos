@@ -43,7 +43,7 @@
                             <div class="news-title"><a href="/news">Новости</a> медстрахования:</div>
                             {% for item in news %}
                             <div class="news-item clearfix">
-                                <div class="news-item-date">{{ item.date|date:"d F Y" }}</div>
+                                <div class="news-item-date">{{ item.date|date:"d.m.Y" }}</div>
                                 <div class="news-item-name"><a href="/news-item/{{ item.id }}">{{ item.title }}</a></div>
                                 {{ item.anounce|safe }}
                             </div><!-- news-item -->

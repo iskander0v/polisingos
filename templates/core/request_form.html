@@ -29,6 +29,7 @@
                 if(id == 'client_type_f'){
                     $('#client_type_c').attr('checked', 'checked');
                     $('label[for=id_name]').text('Название компании');
+                    $('label[for=id_country]').text('Основное местонахождение компании');
 
                     $('label[for=id_contact_name]').show();
                     $('#id_contact_name').removeAttr('disabled');
@@ -41,6 +42,7 @@
                 else if(id == 'client_type_c'){
                     $('#client_type_f').attr('checked', 'checked');
                     $('label[for=id_name]').text('Имя');
+                    $('label[for=id_country]').text('Основная страна пребывания');
 
                     $('label[for=id_contact_name]').hide();
                     $('#id_contact_name').attr('disabled','disabled');

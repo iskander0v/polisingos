@@ -86,7 +86,8 @@ def faq(request):
         context_instance = RequestContext(request))
 
 def contacts(request):
-    return render_to_response('core/contacts.html', context_instance=RequestContext(request))
+    article = get_object_or_404(Article, slug='uridich_info')
+    return render_to_response('core/contacts.html', {'article':article}, context_instance=RequestContext(request))
 
 def programms(request):
     return render_to_response('core/programms.html', context_instance=RequestContext(request))
