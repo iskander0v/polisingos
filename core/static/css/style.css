@@ -284,7 +284,7 @@ ul.breadcrumbs li a{float:left;}
     padding: 3px;
 }
 
-programm-table table th {
+.programm-table table th {
     text-align: center;
 }
 .programm-table table tr:nth-child(2n) {
