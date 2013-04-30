@@ -10,7 +10,13 @@
                     <li>{{ article.title }}</li>
                 </ul>
                 <h1>{{ article.title }}</h1>
-                {{ article.text|safe }}
+                {% ifequal article.slug 'oms-dms-mms' %}
+                    <div class="programm-table">
+                    {{ article.text|safe }}
+                    </div>
+                {% else %}
+                    {{ article.text|safe }}
+                {% endifequal %}
             </div>
         </div>
     </section>
