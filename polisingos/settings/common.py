@@ -74,7 +74,12 @@ INSTALLED_APPS = (
 
 LOGIN_REDIRECT_URL = '/back/content'
 LOGIN_URL = '/back/login'
-
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'info@bupolis.ru'
+EMAIL_HOST_PASSWORD = '1qa0ok'
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'info@bupolis.ru'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

@@ -1,10 +1,14 @@
+# -*- coding: utf-8 -*-
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import permission_required
-from django.template import RequestContext
+from django.template import RequestContext, Context
+from django.template.loader import get_template
 from forms import *
+from django.core.mail import EmailMultiAlternatives, EmailMessage, send_mail
+
 
 def main_page(request):
     news = News.objects.all().order_by('id')
@@ -71,7 +75,21 @@ def calculate(request):
     if request.method == 'POST':
         form = QuoteForm(request.POST)
         if form.is_valid():
-            form.save()
+            quote = form.save()
+            subject = u'Bupolis.ru - Заказ на расчет полиса'
+
+            send_mail(
+                subject,
+                get_template('core/quote_email.html').render(
+                    Context({
+                        'quote': quote,
+                    })
+                ),
+                'info@bupolis.ru',
+                ['info@polis-ingos.ru', 'roman.iskanderov@gmail.com'],
+                fail_silently = False
+            )
+
             return HttpResponseRedirect(reverse('core.views.main_page'))
     else:
         form = QuoteForm()
