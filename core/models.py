@@ -55,7 +55,7 @@ class Article(models.Model):
     text = models.TextField()
     is_helpful = models.BooleanField(default=False)
     order_helpful = models.IntegerField(default=0)
-
+    in_helpful_category = models.BooleanField(default=True)
     def __unicode__(self):
         return self.title
 
