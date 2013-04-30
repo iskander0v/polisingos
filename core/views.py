@@ -90,7 +90,8 @@ def contacts(request):
     return render_to_response('core/contacts.html', {'article':article}, context_instance=RequestContext(request))
 
 def programms(request):
-    return render_to_response('core/programms.html', context_instance=RequestContext(request))
+    article = Article.objects.get(slug = 'programm-introduction')
+    return render_to_response('core/programms.html', {'article':article}, context_instance=RequestContext(request))
 
 def programm(request, id):
     programm = get_object_or_404(InsuranceProgramm, pk=id)
