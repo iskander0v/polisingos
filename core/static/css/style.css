@@ -283,6 +283,10 @@ ul.breadcrumbs li a{float:left;}
     border: 1px gainsboro solid;
     padding: 3px;
 }
+
+programm-table table th {
+    text-align: center;
+}
 .programm-table table tr:nth-child(2n) {
     background-color: #efefef;
 }
