@@ -23,10 +23,12 @@
                 <div class="header-title">Международное медицинское страхование</div>
                 <div class="header-contact">
                     <ul class="social clearfix">
+                        <div style="display: none;">
                         <li><a href="#" class="social-ico-1"></a></li>
                         <li><a href="#" class="social-ico-2"></a></li>
                         <li><a href="#" class="social-ico-3"></a></li>
                         <li><a href="#" class="social-ico-4"></a></li>
+                        </div>
                     </ul>
                     <a href="mailto:info@bupolis.ru" class="mail-button">Написать письмо</a>
                 </div><!-- header-contact -->
@@ -84,7 +86,7 @@
                         <li><a href="/article/about-bupa"></a></li>
                         <li><a href="/article/about-ingos"></a></li>
                     </ul>
-                    <div class="qr-code"><img src="/static/img/qrcode2.png" width="150" height="150" alt="" style="display:block"></div>
+                    <div class="qr-code"><a href="/article/vizmi-bupa" style="border: 0px;"><img src="/static/img/qrcode2.png" width="150" height="150" alt="" style="display:block"></a></div>
                     <div class="vk"></div>
                     <div class="facebook"></div>
                 </div><!-- sidebar-inside -->
@@ -97,16 +99,12 @@
 <footer>
     <div class="wrap clearfix">
         <div class="copy">
-            &copy; 2013, Bupa Ru<br>Все права защищены
+            &copy; 2013, Bupolis.ru<br>Все права защищены
         </div><!-- copy -->
         <div class="footer-r clearfix">
-            <a href="#" class="site-map-link">Карта сайта</a>
+            <!--<a href="#" class="site-map-link">Карта сайта</a>-->
             <ul class="footer-menu clearfix">
-                <li><a href="#">Сервис Bupa</a></li>
-                <li><a href="#">Расчет и доставка</a></li>
-                <li><a href="#">Полезная информация</a></li>
-                <li><a href="#">Вопрос–ответ</a></li>
-                <li><a href="#">Контакты</a></li>
+                {% show_menu 'bottom' %}
             </ul>
         </div><!-- footer-r -->
     </div><!-- wrap -->

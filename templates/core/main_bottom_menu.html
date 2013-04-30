@@ -1,0 +1,12 @@
+{% for item in items %}
+    <li {% if forloop.last %}class="last-child"{% endif %}><a href="
+{% if item.article  %}/article/{{ item.article.slug }}
+{% elif item.url %}/{{ item.url }}
+{% endif %}">{{ item.title }}</a></li>
+{% endfor %}
+
+{# <li><a href="#">Сервис Bupa</a></li> #}
+{#<li><a href="#">Расчет и доставка</a></li>#}
+{#<li><a href="#">Полезная информация</a></li>#}
+{#<li><a href="#">Вопрос–ответ</a></li>#}
+{#<li><a href="#">Контакты</a></li>#}
