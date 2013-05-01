@@ -13,6 +13,22 @@
     <!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
     <script type="text/javascript" src="/static/js/jquery1.8.3.min.js"></script>
     <script type="text/javascript" src="/static/js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#callback-click-button').click(function(){
+                $.ajaxSetup({
+                    success: function(data){
+                        data = $.parseJSON(data);
+                        $('#callback_name_id').val("");
+                        $('#callback_phone_id').val("");
+                        $('#callback-back-wrap').hide();
+                }
+            });
+            $.post('/contacts/callback', {'name': $('#callback_name_id').val(), 'phone': $('#callback_phone_id').val()});
+            });
+        });
+
+    </script>
 </head>
 <body>
 <div class="main">
@@ -33,18 +49,7 @@
                 <div class="header-phone clearfix">
                     <p>+7&nbsp;(495)&nbsp;223-04-61</p>
                     <a href="#" class="call-button">Перезвоните мне!</a>
-                    <div class="call-panel">
-                        <label>Имя &nbsp;<span>(как к вам обращаться)</span>:</label>
-                        <div class="input-text-wrap clearfix">
-                            <input type="text" class="input-text">
-                        </div><!-- input-text-wrap -->
-                        <label>Телефон:</label>
-                        <div class="input-text-wrap clearfix">
-                            <input type="text" class="input-text">
-                        </div><!-- input-text-wrap -->
-                        <input type="button" class="request-call" value="Заказать Звонок">
-                        <div class="arrow-top"></div>
-                    </div><!-- call-panel -->
+                    {% show_callback_form %}
                 </div><!-- header-phone -->
             </div><!-- wrap -->
         </div><!-- header-in -->
@@ -106,6 +111,11 @@
             </ul>
         </div><!-- footer-r -->
     </div><!-- wrap -->
+    <!-- BEGIN JIVOSITE CODE {literal} -->
+    <script type='text/javascript'>
+        (function(){ var widget_id = '57896';
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
+    <!-- {/literal} END JIVOSITE CODE -->
 </footer>
 </body>
 </html>

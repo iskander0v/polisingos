@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import permission_required
 from django.template import RequestContext, Context
 from django.template.loader import get_template
 from forms import *
 from django.core.mail import EmailMultiAlternatives, EmailMessage, send_mail
+from django.utils import simplejson
+
 
 
 def main_page(request):
@@ -114,6 +116,28 @@ def programms(request):
 def programm(request, id):
     programm = get_object_or_404(InsuranceProgramm, pk=id)
     return render_to_response('core/programm.html', {'programm':programm}, context_instance=RequestContext(request))
+
+def callback(request):
+    context = {}
+    if request.is_ajax():
+        if request.method == 'POST':
+            name = request.POST['name'].strip()
+            phone = request.POST['phone'].strip()
+            subject = u'Bupolis.ru - Запрос на обратный звонок'
+
+            send_mail(
+                subject,
+                get_template('core/callback_email.html').render(
+                    Context({
+                        'name': name,
+                        'phone': phone
+                        })
+                ),
+                'info@bupolis.ru',
+                ['info@polis-ingos.ru', 'roman.iskanderov@gmail.com'],
+                fail_silently = False
+            )
+    return HttpResponse(context)
 
 def admin_main(request):
 

@@ -31,7 +31,7 @@ class ClientType(models.Model):
 class PhoneContact(models.Model):
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=30)
-    callInTime = models.TimeField()
+
 
 class QuoteRequest(models.Model):
     QUOTE_TYPE = (

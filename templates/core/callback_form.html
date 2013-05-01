@@ -1,0 +1,15 @@
+<div class="call-panel" id="callback-back-wrap">
+    <form id="callback_from" action="" method="POST">
+        {% csrf_token %}
+        <label>Имя &nbsp;<span>(как к вам обращаться)</span>:</label>
+        <div class="input-text-wrap clearfix">
+            <input id="callback_name_id" type="text" name="name" class="input-text"/>
+        </div><!-- input-text-wrap -->
+        <label>Телефон:</label>
+        <div class="input-text-wrap clearfix">
+            <input id="callback_phone_id" type="text" name="phone" class="input-text"/>
+        </div><!-- input-text-wrap -->
+        <input id="callback-click-button" type="button" class="request-call" value="Заказать Звонок"/>
+        <div class="arrow-top"></div>
+    </form>
+</div><!-- call-panel -->

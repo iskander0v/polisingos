@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^order/calculate/$', 'core.views.calculate', name='calculate'),
     url(r'^faq/$', 'core.views.faq', name='faq'),
     url(r'^contacts/$', 'core.views.contacts', name='contacts'),
+    url(r'^contacts/callback$', 'core.views.callback', name='callback'),
     url(r'^programms/$', 'core.views.programms', name='programms'),
     url(r'^programms/(?P<id>\w+)/$', 'core.views.programm', name='programm'),
 

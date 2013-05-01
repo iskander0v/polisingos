@@ -1,5 +1,6 @@
 from django import template
 from core.models import *
+from core.forms import *
 from django.template import loader, Context
 
 register = template.Library()
@@ -51,6 +52,10 @@ def show_info_block(context):
     articles = Article.objects.filter(is_helpful=True).order_by('order_helpful')[:5]
     return {'articles': articles}
 
+@register.inclusion_tag('core/callback_form.html', takes_context=True)
+def show_callback_form(context):
+    form = PhoneContactForm()
+    return {'callback': form }
 # @register.inclusion_tag('main_menu.html', takes_context=True)
 # def show_menu(context):
 #     pages = Page.objects.filter(is_active = True).order_by('order')

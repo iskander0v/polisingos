@@ -23,6 +23,11 @@ class ClientTypeForm(ModelForm):
     class Meta:
         model = ClientType
 
+
+class PhoneContactForm(ModelForm):
+    class Meta:
+        model = PhoneContact
+
 class ArticleForm(ModelForm):
     title = CharField(widget=TextInput(attrs={'class': 'input-xxlarge', 'placeholder': u'Введите текст'}),
         error_messages={'required': u'Обязательное поле'},
