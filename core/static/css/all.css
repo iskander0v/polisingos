@@ -615,7 +615,7 @@ a.green-btn {
 	vertical-align: top;
 	margin: 0 0 1%;
 	width:311px;
-	font-size: 
+	//font-size:
 }
 body .reserve-holder .reserve span {
 	font-size: 20px;
@@ -899,7 +899,7 @@ border:0;
 }
 .reservation form .row .holder {
 	padding: 3px 0 0;
-	margin; -3px 0 0;
+	margin: -3px 0 0;
 }
 .reservation form .col label {
 	color: #000;

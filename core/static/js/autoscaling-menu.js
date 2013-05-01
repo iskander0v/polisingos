@@ -11,3 +11,4 @@ function autoscalingMenu(menu){
 	$('td:last', newMenu).addClass('last');
 	newMenu.insertAfter(menu);
 }
+
