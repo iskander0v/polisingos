@@ -97,7 +97,7 @@ header .logo a{display:block; background:url(/static/img/logo11.png) no-repeat 0
 .header-phone{float:right; padding:17px 0 0; position:relative;}
 .header-phone p{font-size:20px; line-height:33px; color:#fff; text-align:right; text-shadow:0 1px 0 rgba(0,0,0,0.22); margin:0 0 10px;}
 .header-phone p span{font-size:22px; color:#bae9e9;}
-.call-button{float:right; background:url(/static/img/button-call.png) no-repeat 0 0; width:148px; height:32px; overflow:hidden; font-size:12px; line-height:32px; font-weight:bold; text-decoration:none; padding:0 0 0 12px;}
+.call-button{float:right; background:url(/static/img/button-call.png) no-repeat 0 0; width:154px; height:32px; overflow:hidden; font-size:12px; line-height:32px; font-weight:bold; text-decoration:none; padding:0 0 0 6px;}
 .call-button.call-open{background-position:0 100%;}
 
 .call-panel{display:none; width:188px; padding:21px 16px 27px; background:#fcfcfc; position:absolute; top:109px; right:0; z-index:2; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0 3px 18px rgba(0,0,0,0.25); -webkit-box-shadow:0 3px 18px rgba(0,0,0,0.25); box-shadow:0 3px 18px rgba(0,0,0,0.25);}
