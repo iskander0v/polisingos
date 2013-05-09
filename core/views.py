@@ -13,7 +13,7 @@ from django.utils import simplejson
 
 
 def main_page(request):
-    news = News.objects.all().order_by('id')
+    news = News.objects.all().order_by('-date')
     return render_to_response('core/main.html',
                               {'news': news},
                               context_instance = RequestContext(request))
@@ -31,7 +31,7 @@ def company_page(request):
                               context_instance = RequestContext(request))
 
 def news(request):
-    news = News.objects.all().order_by('id')
+    news = News.objects.all().order_by('-date')
     return render_to_response('core/news.html',
                               {'news': news},
                               context_instance = RequestContext(request))
