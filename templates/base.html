@@ -91,7 +91,9 @@
                     </ul>
                     <div class="qr-code"><a href="/article/vizmi-bupa" style="border: 0px;"><img src="/static/img/qrcode2.png" width="150" height="150" alt="" style="display:block"></a></div>
                     <div class="vk"></div>
-                    <div class="facebook"></div>
+                    <div class="facebook">
+                        <div class="fb-like" data-href="http://bupolis.ru" data-send="false" data-width="220" data-show-faces="true"></div>
+                    </div>
                 </div><!-- sidebar-inside -->
             </aside><!-- sidebar -->
             {% block body_content %}{% endblock %}
@@ -145,5 +147,13 @@
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/21216232" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
