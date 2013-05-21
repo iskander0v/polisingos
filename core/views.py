@@ -56,19 +56,19 @@ def filtered_news(request, year=2013, month=None):
                               context_instance = RequestContext(request))
 
 def articles(request):
-    articles = Article.objects.filter(is_helpful=True, in_helpful_category=True)
+    articles = Article.objects.filter(is_helpful=True, in_helpful_category=True, is_active=True)
     return render_to_response('core/article_list.html',
                               { 'articles': articles },
                               context_instance = RequestContext(request))
 
 def article(request, slug):
-    article = Article.objects.get(slug=slug)
+    article = Article.objects.get(slug=slug, is_active=True)
     return render_to_response('core/article.html',
                               {'article':article},
                               context_instance = RequestContext(request))
 
 def category(request, slug):
-    cat = Category.objects.filter(article__slug=slug)[0]
+    cat = Category.objects.filter(article__slug=slug, article__is_active=True)[0]
     return render_to_response('core/category.html',
                               {'category': cat},
                               context_instance = RequestContext(request))
