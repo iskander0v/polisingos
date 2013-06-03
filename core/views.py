@@ -13,7 +13,7 @@ from django.utils import simplejson
 
 
 def main_page(request):
-    news = News.objects.all().order_by('-date')
+    news = News.objects.all().order_by('-date')[:5]
     return render_to_response('core/main.html',
                               {'news': news},
                               context_instance = RequestContext(request))
