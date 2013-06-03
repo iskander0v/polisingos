@@ -1,6 +1,6 @@
 <li{% if active %} class="active"{% endif %}>
     {% ifequal type 'PR' %}<a href="/personal"><span>Частным лицам</span></a>{% endifequal %}
-    {% ifequal type 'CP' %}<a href="/company"><span>Компаниям</span></a>{% endifequal %}
+    {% ifequal type 'CP' %}<a href="/company"><span>Организациям</span></a>{% endifequal %}
     <ul>
         {% for item in items %}
         <li><a href="/category/{{ item.article.slug }}">{{ item.title }}</a></li>
