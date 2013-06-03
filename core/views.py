@@ -58,7 +58,7 @@ def filtered_news(request, year=2013, month=None):
                               context_instance = RequestContext(request))
 
 def articles(request):
-    articles = Article.objects.filter(is_helpful=True, in_helpful_category=True, is_active=True)
+    articles = Article.objects.filter(in_helpful_category=True, is_active=True)
     return render_to_response('core/article_list.html',
                               { 'articles': articles },
                               context_instance = RequestContext(request))
