@@ -25,7 +25,7 @@ def personal_page(request):
                               context_instance = RequestContext(request))
 
 def company_page(request):
-    categories = Category.objects.filter(client_type__type_id='CP')
+    categories = Category.objects.filter(client_type__type_id='CP').order_by('order')
     return render_to_response('core/company_page.html',
                               {'categories': categories},
                               context_instance = RequestContext(request))

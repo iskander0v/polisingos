@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Bupa.ru{% endblock %}
+{% block page_title %}Bupolis - Предложения для юридических лиц{% endblock %}
 {% block body_content %}
     <section class="content">
         <div class="content-inside clearfix">
             <div class="text clearfix">
                 <ul class="breadcrumbs clearfix">
                     <li><a href="#">Bupolis</a>&nbsp;&rarr;&nbsp;</li>
-                    <li>Частным лицам</li>
+                    <li>Для компаний</li>
                 </ul>
                 <h1>Предложения для компаний</h1>
-                <p>Основная стадия проведения рыночного исследования интегрирована. Спонсорство, суммируя приведенные примеры, традиционно транслирует PR, отвоевывая <a href="#">рыночный сегмент</a>. Надо сказать, что маркетинг специфицирует эксклюзивный направленный маркетинг, используя опыт предыдущих кампаний выполненного проекта в этих рамках.</p>
                 <h2>Выберите свою категорию:</h2>
                 <div class="category-all clearfix">
                     {% for category in categories %}
