@@ -14,8 +14,9 @@ from django.utils import simplejson
 
 def main_page(request):
     news = News.objects.all().order_by('-date')[:5]
+    article_about = Article.objects.get(slug = 'about-word-bupa')
     return render_to_response('core/main.html',
-                              {'news': news},
+                              {'news': news, 'article_about': article_about},
                               context_instance = RequestContext(request))
 
 def personal_page(request):

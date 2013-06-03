@@ -39,6 +39,9 @@
                         </div><!-- reasons -->
                         </div><!-- reasons-all -->
                         <a href="/order/calculate" class="orange-button orange-button-content">подобрать полис</a>
+                        {% if article_about %}
+                            {{ article_about.text|safe }}
+                        {% endif %}
                         <div class="news">
                             <div class="news-title"><a href="/news">Новости о здоровье</a>:</div>
                             {% for item in news %}
