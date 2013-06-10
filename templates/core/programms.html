@@ -29,7 +29,7 @@
                   <li style="list-style: none;padding: 0; background: none;font-size: 20px;"><a style="color:dimgrey;" href="#company-programms">Организациям</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="person-programms">
+                    <div class="tab-pane active" id="person-programms" style="overflow: hidden;">
                         <div>
                             {{ person_article.text|safe }}
                         </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="clear"></div>
                     </div>
-                    <div class="tab-pane" id="company-programms">
+                    <div class="tab-pane" id="company-programms" style="overflow: hidden;">
                         <div style="margin-bottom: 3em;">
                             <img src="/static/img/yuric-diagram.png"/>
                         </div>
