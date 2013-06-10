@@ -112,8 +112,9 @@ def contacts(request):
     return render_to_response('core/contacts.html', {'article':article}, context_instance=RequestContext(request))
 
 def programms(request):
-    article = Article.objects.get(slug = 'programm-introduction')
-    return render_to_response('core/programms.html', {'article':article}, context_instance=RequestContext(request))
+    particle = Article.objects.get(slug = 'programm-introduction')
+    carticle = Article.objects.get(slug = 'company-plans')
+    return render_to_response('core/programms.html', {'person_article':particle, 'company_article': carticle}, context_instance=RequestContext(request))
 
 def programm(request, id):
     programm = get_object_or_404(InsuranceProgramm, pk=id)

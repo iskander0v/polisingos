@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=1000">
+    {% block addcss %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
     <script type="text/javascript" src="/static/js/jquery1.8.3.min.js"></script>
@@ -29,6 +30,7 @@
         });
 
     </script>
+    {% block addjs %}{% endblock %}
 </head>
 <body>
 <div class="main">

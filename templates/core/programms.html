@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 
 {% block page_title %}Bupolis - Медицинские программы{% endblock %}
+{% block addjs %}
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#myTab a').click(function (e) {
+          e.preventDefault();
+          $(this).tab('show');
+        });
+        $('#myTab a[href="#person-programms"]').tab('show');
+    });
+    </script>
+{% endblock %}
+{% block addcss %}
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+{% endblock %}
 {% block body_content %}
     <section class="content">
         <div class="content-inside clearfix">
@@ -9,47 +24,73 @@
                     <li><a href="/">Bupolis</a>&nbsp;&rarr;&nbsp;</li>
                     <li>Новости</li>
                 </ul>
-                <div>
-                    <div>
-                        {{ article.text|safe }}
+                <ul class="nav nav-tabs" id="myTab" >
+                  <li style="list-style: none;padding: 0; background: none;font-size: 20px;" class="active"><a style="color:dimgrey;" href="#person-programms">Частным лицам</a></li>
+                  <li style="list-style: none;padding: 0; background: none;font-size: 20px;"><a style="color:dimgrey;" href="#company-programms">Организациям</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="person-programms">
+                        <div>
+                            {{ person_article.text|safe }}
+                        </div>
+                        <div style="margin: 20px;text-align: center; "><span style="font-size: 18px;">Берем обязательную базовую программу:</span></div>
+                        <a style="text-decoration: none;" href="/programms/2"><div class="medical-programm-option-base">
+                            <div style="font-weight: bold;font-size: 24px;padding: 0.7em;color: #ffffff;text-shadow: 1px 1px 0px rgb(10,97,121);">World Wide Medical</div>
+                            <span style="font-size: 22px;">Стационар</span>
+                        </div></a>
+                        <div style="margin: 20px 0;text-align: center; "><span style="font-size: 18px;">Подбираем дополнительные программы:</span></div>
+                        <div style="padding: 0; margin: 0; text-align: left;">
+                            <a href="/programms/3"><div class="float-left medical-programm option-green">
+                                <div style="padding: 0.7em;">Worldwide Medical Plus</div>
+                                <div>Поликлиника</div>
+                            </div></a>
+                            <a href="/programms/4"><div class="float-left medical-programm option-green">
+                                <div style="padding: 0.7em;">Worldwide Medicines and Equipment</div>
+                                <div>Лекарства и оборудование</div>
+                            </div></a>
+                            <a href="/programms/5"><div class="float-left medical-programm option-green">
+                                <div style="padding: 0.7em;">Worldwide Wellbeing</div>
+                                <div>Диспансеризация, забота о здоровье</div>
+                            </div></a>
+                            <a href="/programms/6"><div class="float-left medical-programm option-green">
+                                <div style="padding: 0.7em;">Worldwide Evacuation</div>
+                                <div>Эвакуация</div>
+                            </div></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="margin: 20px;text-align: center; "><span style="font-size: 18px;">Расширяем возможности покрытия:</span></div>
+                        <div style="padding: 0; margin: 0; text-align: left;">
+                            <a href="/programms/15"><div class="float-left medical-programm option-blue">
+                                <div style="padding: 0.7em;">USA cover</div>
+                                <div>Покрытие на территории США</div>
+                            </div></a>
+                            <a href="/programms/16"><div class="float-left medical-programm option-blue">
+                                <div style="padding: 0.7em;">Cover for pre-existing conditions</div>
+                                <div>Предсуществующие состояния</div>
+                            </div></a>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div style="margin: 20px;text-align: center; "><span style="font-size: 18px;">Берем обязательную базовую программу:</span></div>
-                    <a style="text-decoration: none;" href="/programms/2"><div class="medical-programm-option-base">
-                        <div style="font-weight: bold;font-size: 24px;padding: 0.7em;color: #ffffff;text-shadow: 1px 1px 0px rgb(10,97,121);">World Wide Medical</div>
-                        <span style="font-size: 22px;">Стационар</span>
-                    </div></a>
-                    <div style="margin: 20px 0;text-align: center; "><span style="font-size: 18px;">Подбираем дополнительные программы:</span></div>
-                    <div style="padding: 0; margin: 0; text-align: left;">
-                        <a href="/programms/3"><div class="float-left medical-programm option-green">
-                            <div style="padding: 0.7em;">Worldwide Medical Plus</div>
-                            <div>Поликлиника</div>
-                        </div></a>
-                        <a href="/programms/4"><div class="float-left medical-programm option-green">
-                            <div style="padding: 0.7em;">Worldwide Medicines and Equipment</div>
-                            <div>Лекарства и оборудование</div>
-                        </div></a>
-                        <a href="/programms/5"><div class="float-left medical-programm option-green">
-                            <div style="padding: 0.7em;">Worldwide Wellbeing</div>
-                            <div>Диспансеризация, забота о здоровье</div>
-                        </div></a>
-                        <a href="/programms/6"><div class="float-left medical-programm option-green">
-                            <div style="padding: 0.7em;">Worldwide Evacuation</div>
-                            <div>Эвакуация</div>
-                        </div></a>
+                    <div class="tab-pane" id="company-programms">
+                        <div style="margin-bottom: 3em;">
+                            <img src="/static/img/yuric-diagram.png"/>
+                        </div>
+                        <table style="border:0px 0px !important;">
+                            <tr>
+                                <td style="border:0px;"><img style="width: 25px;" src="/static/img/plusses2.png"/></td>
+                                <td style="padding-left: 1em;padding-top: 0.3em;border:0px;"><p style="margin: 0;">- Стоматология (профилактика, лечение, протезирование)</p></td>
+                            </tr>
+                            <tr>
+                                <td style="border:0px;"><img style="width: 58px;" src="/static/img/plusses1.png"/></td>
+                                <td style="padding-left: 1em;padding-top: 0.3em;border:0px;"><p  style="margin: 0;">- Офтальмология (глазной тест и очки/линзы)</p></td>
+                            </tr>
+                        </table>
+                        <div class="clear"></div>
+                        <div>
+                            {{ company_article.text|safe }}
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div class="clear"></div>
-                    <div style="margin: 20px;text-align: center; "><span style="font-size: 18px;">Расширяем возможности покрытия:</span></div>
-                    <div style="padding: 0; margin: 0; text-align: left;">
-                        <a href="/programms/15"><div class="float-left medical-programm option-blue">
-                            <div style="padding: 0.7em;">USA cover</div>
-                            <div>Покрытие на территории США</div>
-                        </div></a>
-                        <a href="/programms/16"><div class="float-left medical-programm option-blue">
-                            <div style="padding: 0.7em;">Cover for pre-existing conditions</div>
-                            <div>Предсуществующие состояния</div>
-                        </div></a>
-                    </div>
-                    <div class="clear"></div>
                 </div>
                 <div style="margin-top: 2em;"><a href="/order/calculate" class="orange-button orange-button-content">подобрать полис</a></div>
             </div>
