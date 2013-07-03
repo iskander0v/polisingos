@@ -111,6 +111,7 @@ class MenuItem(models.Model):
 class QuestionAnswer(models.Model):
     question = models.TextField(verbose_name=u'Вопрос', max_length=1000)
     answer = models.TextField(verbose_name=u'Ответ', max_length=2000)
+    order = models.PositiveIntegerField()
 
     def __unicode__(self):
         return self.question

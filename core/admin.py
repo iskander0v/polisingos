@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from django.contrib.admin import ModelAdmin
 from core.models import *
 from suit_redactor.widgets import RedactorWidget
+from suit.admin import SortableModelAdmin
 
 
 class ArticleForm(ModelForm):
@@ -17,6 +18,8 @@ class ArticleAdmin(ModelAdmin):
         (u'Текст статьи', {'classes': ('full-width',), 'fields': ('text',)})
     ]
 
+class QuestionAnswerAdmin(SortableModelAdmin):
+    sortable = 'order'
 
 admin.site.register(Menu)
 admin.site.register(MenuItem)
@@ -25,4 +28,4 @@ admin.site.register(ClientType)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(QuoteRequest)
 admin.site.register(InsuranceProgramm)
-admin.site.register(QuestionAnswer)
+admin.site.register(QuestionAnswer, QuestionAnswerAdmin)
