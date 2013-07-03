@@ -12,6 +12,7 @@ class InsuranceProgramm(models.Model):
 
     class Meta:
         verbose_name = u'Программа страхования'
+        verbose_name_plural = u'Программы страхования'
 
 class ClientType(models.Model):
     CLIENT_TYPE_IDS = (
@@ -27,6 +28,7 @@ class ClientType(models.Model):
 
     class Meta:
         verbose_name = u'Тип клиента'
+        verbose_name_plural = u'Типы клиентов'
 
 class PhoneContact(models.Model):
     name = models.CharField(max_length=200)
@@ -48,6 +50,7 @@ class QuoteRequest(models.Model):
 
     class Meta:
         verbose_name = u'Запрос расчета'
+        verbose_name_plural = u'Запросы расчета'
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
@@ -60,6 +63,10 @@ class Article(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = u'Статья'
+        verbose_name_plural = u'Статьи'
+
 class Category(models.Model):
     title = models.CharField(max_length=40)
     short_descr = models.CharField(max_length=140)
@@ -71,6 +78,10 @@ class Category(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = u'Категория'
+        verbose_name_plural = u'Категории'
+
 class Menu(models.Model):
     alias = models.CharField(max_length=100)
     textid = models.CharField(max_length=20, unique=True)
@@ -78,6 +89,10 @@ class Menu(models.Model):
 
     def __unicode__(self):
         return self.alias
+
+    class Meta:
+        verbose_name = u'Меню'
+        verbose_name_plural = u'Меню'
 
 class MenuItem(models.Model):
     title = models.CharField(max_length=40)
@@ -89,12 +104,20 @@ class MenuItem(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = u'Элемент меню'
+        verbose_name_plural = u'Элементы меню'
+
 class QuestionAnswer(models.Model):
     question = models.TextField(verbose_name=u'Вопрос', max_length=1000)
     answer = models.TextField(verbose_name=u'Ответ', max_length=2000)
 
     def __unicode__(self):
         return self.question
+
+    class Meta:
+        verbose_name = u'Вопрос-Ответ'
+        verbose_name_plural = u'Вопросы и Ответы'
 
 class News(models.Model):
     title = models.CharField(max_length=200)
@@ -104,3 +127,7 @@ class News(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        verbose_name = u'Новость'
+        verbose_name_plural = u'Новости'

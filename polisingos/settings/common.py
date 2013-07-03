@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -6,7 +7,7 @@ TIME_ZONE = 'Europe/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 SITE_ID = 1
 
@@ -58,6 +59,8 @@ ROOT_URLCONF = 'polisingos.urls'
 WSGI_APPLICATION = 'polisingos.wsgi.application'
 
 INSTALLED_APPS = (
+    'suit',
+    'suit_redactor',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -107,4 +110,12 @@ LOGGING = {
             'propagate': True,
             },
         }
+}
+
+SUIT_CONFIG = {
+    'MENU': (
+        {'app': 'core', 'label': u'Контент', 'icon': 'icon-book', 'models': (
+            'article', 'questionanswer', 'news', 'category',
+        )},
+    )
 }
