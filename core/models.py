@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.utils.html import strip_tags
 
 class InsuranceProgramm(models.Model):
     name = models.CharField(max_length=100, verbose_name=u'Название программы')
@@ -62,13 +63,13 @@ class QuoteRequest(models.Model):
         verbose_name_plural = u'Запросы расчета'
 
 class Article(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField()
+    title = models.CharField(verbose_name=u'Заголовок', max_length=100)
+    slug = models.SlugField(verbose_name=u'URL')
     text = models.TextField()
-    is_helpful = models.BooleanField(default=False)
-    order_helpful = models.IntegerField(default=0)
-    in_helpful_category = models.BooleanField(default=True)
-    is_active = models.BooleanField(default=False)
+    is_helpful = models.BooleanField(verbose_name=u'Полезная статья', default=False)
+    order_helpful = models.IntegerField(verbose_name=u'Порядок', default=0)
+    in_helpful_category = models.BooleanField(verbose_name=u'В полезной информации', default=True)
+    is_active = models.BooleanField(verbose_name=u'Активна', default=False)
     def __unicode__(self):
         return self.title
 
@@ -120,10 +121,15 @@ class MenuItem(models.Model):
 class QuestionAnswer(models.Model):
     question = models.TextField(verbose_name=u'Вопрос', max_length=1000)
     answer = models.TextField(verbose_name=u'Ответ', max_length=2000)
-    order = models.PositiveIntegerField()
+    order = models.PositiveIntegerField(verbose_name=u'Порядок')
 
     def __unicode__(self):
         return self.question
+
+    def stripped_question(self):
+        stripped = strip_tags(self.question)[:80]
+        return '%s...' % (stripped)
+    stripped_question.short_description = u'Вопрос'
 
     class Meta:
         verbose_name = u'Вопрос-Ответ'

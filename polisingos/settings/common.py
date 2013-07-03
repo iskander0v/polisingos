@@ -113,6 +113,8 @@ LOGGING = {
 }
 
 SUIT_CONFIG = {
+    'MENU_OPEN_FIRST_CHILD': True,
+    'ADMIN_NAME': 'Bupolis',
     'MENU': (
         {'app': 'core', 'label': u'Контент', 'icon': 'icon-book', 'models': (
             'article', 'questionanswer', 'news', 'category',

@@ -12,13 +12,19 @@ class ArticleForm(ModelForm):
         widgets = {
             'text' : RedactorWidget(editor_options={'lang': 'ru'})
         }
-class ArticleAdmin(ModelAdmin):
+class ArticleAdmin(SortableModelAdmin):
     form = ArticleForm
     fieldsets = [
-        (u'Текст статьи', {'classes': ('full-width',), 'fields': ('text',)})
+        (None,            {'fields': ['title', 'slug']}),
+        (u'Текст статьи', {'classes': ['full-width'], 'fields': ['text']})
     ]
+    list_display = ('title', 'is_helpful', 'in_helpful_category', 'is_active')
+    list_editable = ('is_helpful', 'in_helpful_category', 'is_active')
+    list_filter = ('is_helpful', 'in_helpful_category', 'is_active')
+    sortable = 'order_helpful'
 
 class QuestionAnswerAdmin(SortableModelAdmin):
+    list_display = ('stripped_question',)
     sortable = 'order'
 
 admin.site.register(Menu)
