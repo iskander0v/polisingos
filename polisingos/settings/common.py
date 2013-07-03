@@ -117,5 +117,8 @@ SUIT_CONFIG = {
         {'app': 'core', 'label': u'Контент', 'icon': 'icon-book', 'models': (
             'article', 'questionanswer', 'news', 'category',
         )},
+        {'app': 'core', 'label': u'Запросы', 'icon': 'icon-shopping-cart', 'models': (
+            'quoterequest', 'phonecontact',
+        )},
     )
 }

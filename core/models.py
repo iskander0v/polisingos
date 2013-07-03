@@ -34,6 +34,12 @@ class PhoneContact(models.Model):
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=30)
 
+    def __unicode__(self):
+        return '%s %s' % (self.name, self.phone)
+
+    class Meta:
+        verbose_name = u'Обратный звонок'
+        verbose_name_plural = u'Обратные звонки'
 
 class QuoteRequest(models.Model):
     QUOTE_TYPE = (
@@ -47,6 +53,9 @@ class QuoteRequest(models.Model):
     email_or_phone = models.CharField(max_length=50)
     country = models.CharField(max_length=50, default=u'Россия')
     comment = models.CharField(max_length=400, null=True, blank=True)
+
+    def __unicode__(self):
+        return '%s %s' % (self.name, self.email_or_phone)
 
     class Meta:
         verbose_name = u'Запрос расчета'
