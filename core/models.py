@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.utils.html import strip_tags
 
 class InsuranceProgramm(models.Model):
     name = models.CharField(max_length=100, verbose_name=u'Название программы')
@@ -12,6 +13,7 @@ class InsuranceProgramm(models.Model):
 
     class Meta:
         verbose_name = u'Программа страхования'
+        verbose_name_plural = u'Программы страхования'
 
 class ClientType(models.Model):
     CLIENT_TYPE_IDS = (
@@ -27,11 +29,18 @@ class ClientType(models.Model):
 
     class Meta:
         verbose_name = u'Тип клиента'
+        verbose_name_plural = u'Типы клиентов'
 
 class PhoneContact(models.Model):
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=30)
 
+    def __unicode__(self):
+        return '%s %s' % (self.name, self.phone)
+
+    class Meta:
+        verbose_name = u'Обратный звонок'
+        verbose_name_plural = u'Обратные звонки'
 
 class QuoteRequest(models.Model):
     QUOTE_TYPE = (
@@ -46,19 +55,27 @@ class QuoteRequest(models.Model):
     country = models.CharField(max_length=50, default=u'Россия')
     comment = models.CharField(max_length=400, null=True, blank=True)
 
+    def __unicode__(self):
+        return '%s %s' % (self.name, self.email_or_phone)
+
     class Meta:
         verbose_name = u'Запрос расчета'
+        verbose_name_plural = u'Запросы расчета'
 
 class Article(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField()
+    title = models.CharField(verbose_name=u'Заголовок', max_length=100)
+    slug = models.SlugField(verbose_name=u'URL')
     text = models.TextField()
-    is_helpful = models.BooleanField(default=False)
-    order_helpful = models.IntegerField(default=0)
-    in_helpful_category = models.BooleanField(default=True)
-    is_active = models.BooleanField(default=False)
+    is_helpful = models.BooleanField(verbose_name=u'Полезная статья', default=False)
+    order_helpful = models.IntegerField(verbose_name=u'Порядок', default=0)
+    in_helpful_category = models.BooleanField(verbose_name=u'В полезной информации', default=True)
+    is_active = models.BooleanField(verbose_name=u'Активна', default=False)
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        verbose_name = u'Статья'
+        verbose_name_plural = u'Статьи'
 
 class Category(models.Model):
     title = models.CharField(max_length=40)
@@ -71,6 +88,10 @@ class Category(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = u'Категория'
+        verbose_name_plural = u'Категории'
+
 class Menu(models.Model):
     alias = models.CharField(max_length=100)
     textid = models.CharField(max_length=20, unique=True)
@@ -78,6 +99,10 @@ class Menu(models.Model):
 
     def __unicode__(self):
         return self.alias
+
+    class Meta:
+        verbose_name = u'Меню'
+        verbose_name_plural = u'Меню'
 
 class MenuItem(models.Model):
     title = models.CharField(max_length=40)
@@ -89,12 +114,26 @@ class MenuItem(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name = u'Элемент меню'
+        verbose_name_plural = u'Элементы меню'
+
 class QuestionAnswer(models.Model):
     question = models.TextField(verbose_name=u'Вопрос', max_length=1000)
     answer = models.TextField(verbose_name=u'Ответ', max_length=2000)
+    order = models.PositiveIntegerField(verbose_name=u'Порядок')
 
     def __unicode__(self):
         return self.question
+
+    def stripped_question(self):
+        stripped = strip_tags(self.question)[:80]
+        return '%s...' % (stripped)
+    stripped_question.short_description = u'Вопрос'
+
+    class Meta:
+        verbose_name = u'Вопрос-Ответ'
+        verbose_name_plural = u'Вопросы и Ответы'
 
 class News(models.Model):
     title = models.CharField(max_length=200)
@@ -104,3 +143,7 @@ class News(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        verbose_name = u'Новость'
+        verbose_name_plural = u'Новости'

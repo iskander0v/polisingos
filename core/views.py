@@ -102,7 +102,7 @@ def calculate(request):
         context_instance = RequestContext(request))
 
 def faq(request):
-    faqs = QuestionAnswer.objects.all();
+    faqs = QuestionAnswer.objects.all().order_by('order')
     return render_to_response('core/faq.html',
         {'faqs': faqs},
         context_instance = RequestContext(request))
